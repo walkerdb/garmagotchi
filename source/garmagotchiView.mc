@@ -8,13 +8,31 @@ import Toybox.Math;
 import Toybox.Time;
 
 class garmagotchiView extends WatchUi.WatchFace {
+  private var baseImage;
+  private var handsImage;
+  private var expressionDefaultImage;
+  private var screenWidth;
+  private var screenHeight;
+
   function initialize() {
     WatchFace.initialize();
+    baseImage = Application.loadResource(Rez.Drawables.AshleyBase);
+    handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
+    expressionDefaultImage = Application.loadResource(
+      Rez.Drawables.AshleyExpressionDefault
+    );
+    // baseImage = Application.loadResource(Rez.Drawables.WalkerBase);
+    // handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    // expressionDefaultImage = Application.loadResource(
+    //   Rez.Drawables.WalkerExpressionDefault
+    // );
   }
 
   // Load your resources here
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
+    screenWidth = dc.getWidth();
+    screenHeight = dc.getHeight();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -24,12 +42,13 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
+    // Call the parent onUpdate function to redraw the layout
+    View.onUpdate(dc);
     setDayDisplay();
     setTimeDisplay();
     setHeartrateDisplay();
     setBatteryDisplay();
-    // Call the parent onUpdate function to redraw the layout
-    View.onUpdate(dc);
+    drawGarmagotchi(dc);
   }
 
   // Called when this View is removed from the screen. Save the
@@ -42,6 +61,24 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {}
+
+  private function drawGarmagotchi(dc as Dc) {
+    dc.drawBitmap(
+      screenWidth / 2 - baseImage.getWidth() / 2,
+      screenHeight - baseImage.getHeight(),
+      baseImage
+    );
+    dc.drawBitmap(
+      screenWidth / 2 - handsImage.getWidth() / 2,
+      screenHeight - handsImage.getHeight(),
+      handsImage
+    );
+    dc.drawBitmap(
+      screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
+      screenHeight - expressionDefaultImage.getHeight(),
+      expressionDefaultImage
+    );
+  }
 
   private function setDayDisplay() {
     var now = Time.now();
@@ -101,6 +138,7 @@ class garmagotchiView extends WatchUi.WatchFace {
       heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d")
     );
   }
+
   private function setBatteryDisplay() {
     var battery = System.getSystemStats().battery;
     var view = View.findDrawableById("BatteryDisplay") as Text;
