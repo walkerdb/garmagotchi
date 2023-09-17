@@ -70,6 +70,8 @@ function build {
     BUILD_FAILED="false"
   fi
 
+  kill $CURRENT_SPINNER_PID > /dev/null 2>&1
+
   header=$(gum style --faint "📝 Build log")
   gum style \
     --border-foreground 8 \
@@ -78,8 +80,6 @@ function build {
     --margin "0 0 1 0" \
     --padding "1 2" \
     "$(gum join --vertical "${header}" "" "${build_logs}")"
-
-  kill $CURRENT_SPINNER_PID > /dev/null 2>&1
 }
 
 function send_build_to_device {
@@ -107,15 +107,6 @@ function send_build_to_device_with_spinner {
   echo "🚀 Update ready!\n"
 }
 
-function run_build_and_send_to_sim_on_file_change {
-  gum style --foreground 212 '🦻 Now listening for file changes!'
-  gum style --foreground 8 --italic 'The app will automatically rebuild and refresh in the sim when changes are detected.'
-  echo
-  fswatch -o -r ./source ./resources manifest.xml | while read -r changed_file; do
-    build_and_send_to_device
-  done
-}
-
 function build_and_send_to_device {
   build
   if [[ $BUILD_FAILED == 'false' ]]; then
@@ -124,6 +115,15 @@ function build_and_send_to_device {
     gum style --foreground 1 "🚨 Build failed! Use the logs above to help fix the issue."
     echo
   fi
+}
+
+function start_watching_files {
+  gum style --foreground 212 '🦻 Now listening for file changes!'
+  gum style --faint --italic 'The app will automatically rebuild and refresh in the sim when changes are detected.'
+  echo
+  fswatch --one-per-batch --recursive ./source ./resources manifest.xml | while read -r changed_file; do
+    build_and_send_to_device
+  done
 }
 
 install_reqs
@@ -141,5 +141,5 @@ start_sim_if_not_running
 # run an initial build
 build_and_send_to_device
 
-# start watching for file changes
-run_build_and_send_to_sim_on_file_change
+# set up listener to rebuild and reupload to sim on file changes
+start_watching_files
