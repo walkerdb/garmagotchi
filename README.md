@@ -5,7 +5,7 @@ WIP
 ## Setup
 1. Install the Garmin ConnectIQ SDK and follow its setup steps
 2. Install Garmin's MonkeyC vscode extension
-3. Set up a dev key by running the `Monkey C: Verify Installation` command from your vscode command pallette (cmd-shift-p)
+3. Set up a dev key by running the `Monkey C: Verify Installation` command from your vscode command pallette (cmd-shift-p). NOTE: you must save this file to the repo root.
 4. Select `Run -> Run without debugging` to see the app show up on the watch sim!
 
 ## Development workflow
