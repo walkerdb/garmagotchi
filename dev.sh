@@ -24,6 +24,13 @@ function start_sim_if_not_running {
   fi
 }
 
+function stop_monkeydo_if_running {
+  running_monkeydo_pid="$(ps aux | grep bin/monkeydo | grep -v grep |  awk '{print $2}')"
+  if [[ -n "$running_monkeydo_pid" ]]; then
+    kill "$running_monkeydo_pid"
+  fi
+}
+
 # makes the monkeyc build output more readable by adding red/yellow/blue highlighting 
 # for errors, warnings, and successes respectively.
 function colorize_build_output {
@@ -34,6 +41,32 @@ function colorize_build_output {
       echo "${line//WARNING: $device:/\033[33mWARNING\033[0m}"
     elif [[ $line == *"ERROR:"* ]]; then
       echo "${line//ERROR: $device:/\033[31mERROR\033[0m}"
+    else
+      echo "$line"
+    fi
+  done
+}
+
+function colorize_runtime_output {
+  local in_stack="false"
+  while read -r line; do
+
+    if [[ $line == "Stack:"* ]]; then
+      in_stack="true"
+    elif [[ $line == "Encountered an app crash"* ]]; then
+      in_stack="false"
+    fi
+
+    if [[ $in_stack == "true" ]]; then
+      if [[ $line == "Stack:" ]]; then
+        echo "${line}"
+      else
+        gum style --faint --italic "  ${line}"
+      fi
+    elif [[ $line == *"Encountered an app crash."* ]]; then
+      echo
+      gum style --foreground 1 "$line"
+
     else
       echo "$line"
     fi
@@ -72,32 +105,34 @@ function build {
 
   kill $CURRENT_SPINNER_PID > /dev/null 2>&1
 
-  header=$(gum style --faint "📝 Build log")
-  gum style \
-    --border-foreground 8 \
-    --border double \
-    --width 100 \
-    --margin "0 0 1 0" \
-    --padding "1 2" \
-    "$(gum join --vertical "${header}" "" "${build_logs}")"
+  gum style --margin "1 0 0 0" "📝 Build log 👇"
+  echo
+  echo "${build_logs}"
+  echo
+  echo
+}
+
+function print_runtime_logs {
+  content=$(cat | colorize_runtime_output)
+  if [[ -n "$content" ]]; then
+    echo
+    echo "👀 Runtime log 👇"
+    echo "${content}"
+    echo
+    echo
+  fi
 }
 
 function send_build_to_device {
   # upload the build to the sim as a shell background job.
-  # we're backgrounding it because this command seems not to exit on its own.
-  # we will manually force it closed after a set amount of time has passed.
-  monkeydo bin/garmagotchi.prg "${device}" &> /dev/null &
+  # it keeps open indefinitely to print runtime logs, so we background it. 
+  # we kill the old running process on every new build.
+  monkeydo bin/garmagotchi.prg "${device}" 2>&1 | print_runtime_logs &
 
   # get the process ID of the new background job, then remove it from the list of background jobs so that it doesn't 
   # print to the console when we kill it later
   MONKEYDO_PID=$!
   disown $MONKEYDO_PID
-
-  # give it time to finish uploading. 
-  sleep 1
-
-  # force the monkeydo process to stop
-  kill $MONKEYDO_PID > /dev/null 2>&1
 }
 
 function send_build_to_device_with_spinner {
@@ -108,6 +143,7 @@ function send_build_to_device_with_spinner {
 }
 
 function build_and_send_to_device {
+  stop_monkeydo_if_running
   build
   if [[ $BUILD_FAILED == 'false' ]]; then
     send_build_to_device_with_spinner
@@ -118,7 +154,7 @@ function build_and_send_to_device {
 }
 
 function start_watching_files {
-  gum style --foreground 212 '🦻 Now listening for file changes!'
+  gum style --foreground 4 '🦻 Now listening for file changes!'
   gum style --faint --italic 'The app will automatically rebuild and refresh in the sim when changes are detected.'
   echo
   fswatch --one-per-batch --recursive ./source ./resources manifest.xml | while read -r changed_file; do
