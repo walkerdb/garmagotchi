@@ -5,8 +5,7 @@ import Toybox.System;
 import Toybox.WatchUi;
 import Toybox.ActivityMonitor;
 import Toybox.Math;
-using Toybox.Time.Gregorian as Date;
-using Toybox.Time;
+import Toybox.Time;
 
 class garmagotchiView extends WatchUi.WatchFace {
   function initialize() {
@@ -25,9 +24,9 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    setHeartrateDisplay();
+    setDayDisplay();
     setTimeDisplay();
-    setDateDisplay();
+    setHeartrateDisplay();
     setBatteryDisplay();
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
@@ -44,9 +43,9 @@ class garmagotchiView extends WatchUi.WatchFace {
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {}
 
-  private function setTimeDisplay() {
+  private function setDayDisplay() {
     var now = Time.now();
-    var date = Date.info(now, Time.FORMAT_MEDIUM);
+    var date = Time.Gregorian.info(now, Time.FORMAT_MEDIUM);
     var dateString = Lang.format("$1$, $2$ $3$", [
       date.day_of_week,
       date.month,
@@ -57,7 +56,7 @@ class garmagotchiView extends WatchUi.WatchFace {
     view.setText(dateString);
   }
 
-  private function setDateDisplay() {
+  private function setTimeDisplay() {
     var timeFormat = "$1$:$2$";
     var clockTime = System.getClockTime();
     var hours = clockTime.hour;
