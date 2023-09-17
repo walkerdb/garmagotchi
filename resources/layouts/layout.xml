@@ -1,0 +1,7 @@
+<layout id="WatchFace">
+    <drawable class="Background" />
+    
+    <label id="DateTimeDisplay" x="center" y="center" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+    <label id="HeartrateDisplay" text="000" x="center" y="top" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+    <label id="BatteryDisplay" x="left" y="center" font="Graphics.FONT_XTINY" color="Graphics.COLOR_RED"/>
+</layout>
