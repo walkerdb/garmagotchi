@@ -9,4 +9,9 @@ WIP
 4. Select `Run -> Run without debugging` to see the app show up on the watch sim!
 
 ## Development workflow
-We're working on setting up something like hot reloading but for the moment you'll need to manually run the app via the run command whenever you make a change that you want to see on the device.
+1. run `./dev.sh`
+2. that's it! Your app will refresh in the sim after you make any change to the source files.
+
+
+https://github.com/walkerdb/garmagotchi/assets/7026330/5a737db7-2b82-4764-895a-13886b79b580
+
