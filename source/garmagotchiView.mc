@@ -8,7 +8,7 @@ import Toybox.Math;
 using Toybox.Time.Gregorian as Date;
 using Toybox.Time;
 
-class garmagatchiView extends WatchUi.WatchFace {
+class garmagotchiView extends WatchUi.WatchFace {
 
     function initialize() {
         WatchFace.initialize();

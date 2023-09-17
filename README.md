@@ -1,4 +1,4 @@
-# Garmagatchi!
+# Garmagotchi!
 
 WIP
 

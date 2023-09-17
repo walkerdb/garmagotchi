@@ -2,7 +2,7 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class garmagatchiApp extends Application.AppBase {
+class garmagotchiApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -18,7 +18,7 @@ class garmagatchiApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as Array<Views or InputDelegates>? {
-        return [ new garmagatchiView() ] as Array<Views or InputDelegates>;
+        return [ new garmagotchiView() ] as Array<Views or InputDelegates>;
     }
 
     // New app settings have been received so trigger a UI update
@@ -28,6 +28,6 @@ class garmagatchiApp extends Application.AppBase {
 
 }
 
-function getApp() as garmagatchiApp {
-    return Application.getApp() as garmagatchiApp;
+function getApp() as garmagotchiApp {
+    return Application.getApp() as garmagotchiApp;
 }
