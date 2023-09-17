@@ -1,6 +1,8 @@
 #!/bin/sh
 export GUM_INPUT_PROMPT_FOREGROUND="212"
 
+BUILD_FAILED="false"
+
 function install_reqs {
   if ! command -v "fswatch" &> /dev/null ; then
     echo "installing fswatch to track file-system changes...\n"
@@ -31,7 +33,7 @@ function colorize_build_output {
     elif [[ $line == *"WARNING:"* ]]; then
       echo "${line//WARNING: $device:/\033[33mWARNING\033[0m}"
     elif [[ $line == *"ERROR:"* ]]; then
-      echo "${line//ERROR:  $device:/\033[31mERROR\033[0m}"
+      echo "${line//ERROR: $device:/\033[31mERROR\033[0m}"
     else
       echo "$line"
     fi
@@ -61,6 +63,12 @@ function build {
     -y ./developer_key \
     -d "${device}"_sim \
     -w 2>&1 | colorize_build_output)
+
+  if [[ $build_logs == *"ERROR"* ]]; then
+    BUILD_FAILED="true"
+  else
+    BUILD_FAILED="false"
+  fi
 
   header=$(gum style --faint "📝 Build log")
   gum style \
@@ -96,7 +104,7 @@ function send_build_to_device_with_spinner {
   send_build_to_device &
   # 2 seconds seems to be just about the right amount of time for the sim to finish refreshing
   gum spin -s line --title "Sending to device..." -- sleep 2
-  echo "🚀 update ready!\n"
+  echo "🚀 Update ready!\n"
 }
 
 function run_build_and_send_to_sim_on_file_change {
@@ -104,9 +112,18 @@ function run_build_and_send_to_sim_on_file_change {
   gum style --foreground 8 --italic 'The app will automatically rebuild and refresh in the sim when changes are detected.'
   echo
   fswatch -o -r ./source ./resources manifest.xml | while read -r changed_file; do
-    build
-    send_build_to_device_with_spinner
+    build_and_send_to_device
   done
+}
+
+function build_and_send_to_device {
+  build
+  if [[ $BUILD_FAILED == 'false' ]]; then
+    send_build_to_device_with_spinner
+  else
+    gum style --foreground 1 "🚨 Build failed! Use the logs above to help fix the issue."
+    echo
+  fi
 }
 
 install_reqs
@@ -122,8 +139,7 @@ echo
 start_sim_if_not_running
 
 # run an initial build
-build
-send_build_to_device_with_spinner
+build_and_send_to_device
 
 # start watching for file changes
 run_build_and_send_to_sim_on_file_change
