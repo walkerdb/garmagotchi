@@ -6,6 +6,7 @@ import Toybox.WatchUi;
 import Toybox.ActivityMonitor;
 import Toybox.Math;
 import Toybox.Time;
+import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
   private var baseImage;
@@ -46,6 +47,7 @@ class garmagotchiView extends WatchUi.WatchFace {
     View.onUpdate(dc);
     setDayDisplay();
     setTimeDisplay();
+    setWeatherDisplay();
     setHeartrateDisplay();
     setBatteryDisplay();
     drawGarmagotchi(dc);
@@ -107,14 +109,17 @@ class garmagotchiView extends WatchUi.WatchFace {
         hours = hours.format("%02d");
       }
     }
-    var timeString = Lang.format(timeFormat, [
-      hours,
-      clockTime.min.format("%02d"),
-    ]);
+    var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
 
     // Update the view
     var view = View.findDrawableById("TimeDisplay") as Text;
     view.setText(timeString);
+  }
+
+  private function setWeatherDisplay() {
+    var view = View.findDrawableById("TempDisplay") as Text;
+    var conditions = Weather.getCurrentConditions();
+    view.setText((conditions.temperature * 9 / 5).toString() + "°");
   }
 
   private function setHeartrateDisplay() {
@@ -124,19 +129,15 @@ class garmagotchiView extends WatchUi.WatchFace {
     if (info != null) {
       heartRate = info.currentHeartRate;
     } else {
-      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
-        1,
-        true
-      ).next();
+      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(1, true).next();
       if (latestHeartRateSample != null) {
         heartRate = latestHeartRateSample.heartRate;
       }
     }
 
     var view = View.findDrawableById("HeartrateDisplay") as Text;
-    view.setText(
-      heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d")
-    );
+    var heartRateText = heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
+    view.setText(heartRateText);
   }
 
   private function setBatteryDisplay() {
