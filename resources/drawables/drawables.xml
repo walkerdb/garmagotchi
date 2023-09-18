@@ -1,9 +1,11 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    <bitmap id="AshleyBase" filename="ashley/base.png" />
-    <bitmap id="AshleyHands" filename="ashley/hands.png" />
-    <bitmap id="AshleyExpressionDefault" filename="ashley/expression_default.png" />
-    <bitmap id="WalkerBase" filename="walker/base.png" />
-    <bitmap id="WalkerHands" filename="walker/hands.png" />
-    <bitmap id="WalkerExpressionDefault" filename="walker/expression_default.png" />
+    <bitmap id="AshleyHead" dithering="none" filename="ashley/head.png" />
+    <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.png" />
+    <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.png" />
+    <bitmap id="AshleyBody" dithering="none" filename="ashley/body.png" />
+    <bitmap id="WalkerHead" dithering="none" filename="walker/head.png" />
+    <bitmap id="WalkerHands" dithering="none" filename="walker/hands.png" />
+    <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.png" />
+    <bitmap id="WalkerBody" dithering="none" filename="walker/body.png" />
 </drawables>

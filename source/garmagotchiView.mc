@@ -9,7 +9,8 @@ import Toybox.Time;
 import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
-  private var baseImage;
+  private var bodyImage;
+  private var headImage;
   private var handsImage;
   private var expressionDefaultImage;
   private var screenWidth;
@@ -17,16 +18,18 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
-    baseImage = Application.loadResource(Rez.Drawables.AshleyBase);
-    handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
-    expressionDefaultImage = Application.loadResource(
-      Rez.Drawables.AshleyExpressionDefault
-    );
-    // baseImage = Application.loadResource(Rez.Drawables.WalkerBase);
-    // handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    // bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
+    // headImage = Application.loadResource(Rez.Drawables.AshleyHead);
+    // handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
     // expressionDefaultImage = Application.loadResource(
-    //   Rez.Drawables.WalkerExpressionDefault
+    //   Rez.Drawables.AshleyExpressionDefault
     // );
+    bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
+    headImage = Application.loadResource(Rez.Drawables.WalkerHead);
+    handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    expressionDefaultImage = Application.loadResource(
+      Rez.Drawables.WalkerExpressionDefault
+    );
   }
 
   // Load your resources here
@@ -66,9 +69,14 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   private function drawGarmagotchi(dc as Dc) {
     dc.drawBitmap(
-      screenWidth / 2 - baseImage.getWidth() / 2,
-      screenHeight - baseImage.getHeight(),
-      baseImage
+      screenWidth / 2 - bodyImage.getWidth() / 2,
+      screenHeight - bodyImage.getHeight(),
+      bodyImage
+    );
+    dc.drawBitmap(
+      screenWidth / 2 - headImage.getWidth() / 2,
+      screenHeight - headImage.getHeight(),
+      headImage
     );
     dc.drawBitmap(
       screenWidth / 2 - handsImage.getWidth() / 2,
