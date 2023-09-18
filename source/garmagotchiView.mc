@@ -119,7 +119,7 @@ class garmagotchiView extends WatchUi.WatchFace {
         hours = hours - 12;
       }
     } else {
-      if (getApp().getProperty("UseMilitaryFormat")) {
+      if (Properties.getValue("UseMilitaryFormat")) {
         timeFormat = "$1$$2$";
         hours = hours.format("%02d");
       }
