@@ -141,8 +141,10 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
-    var conditions = Weather.getCurrentConditions();
-    view.setText(cToF(conditions.temperature).toString() + "°");
+    var temperatureInC = Weather.getCurrentConditions().temperature;
+    var usesCelsius = System.getDeviceSettings().temperatureUnits == 0;
+    var displayTemp = (usesCelsius ? temperatureInC : cToF(temperatureInC)).toString();
+    view.setText(displayTemp + "°");
   }
 
   private function setHeartrateDisplay() {
