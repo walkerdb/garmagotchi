@@ -161,10 +161,13 @@ class garmagotchiView extends WatchUi.WatchFace {
       }
     }
 
-    var view = View.findDrawableById("HeartrateDisplay") as Text;
+    var view = View.findDrawableById("HeartrateDisplay");
     var heartRateText =
       heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
-    view.setText(heartRateText);
+    if (view has :setLocation and view has :setText) {
+      view.setLocation(view.locX, screenHeight - 270);
+      view.setText(heartRateText);
+    }
   }
 
   private function setBatteryDisplay() {
