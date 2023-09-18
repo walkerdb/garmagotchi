@@ -24,11 +24,11 @@ class garmagotchiView extends WatchUi.WatchFace {
     // expressionDefaultImage = Application.loadResource(
     //   Rez.Drawables.AshleyExpressionDefault
     // );
-    bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
-    headImage = Application.loadResource(Rez.Drawables.WalkerHead);
-    handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
+    headImage = Application.loadResource(Rez.Drawables.AshleyHead);
+    handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
     expressionDefaultImage = Application.loadResource(
-      Rez.Drawables.WalkerExpressionDefault
+      Rez.Drawables.AshleyExpressionDefault
     );
   }
 
@@ -128,10 +128,14 @@ class garmagotchiView extends WatchUi.WatchFace {
     view.setText(timeString);
   }
 
+  private function cToF(temperatureInCelsius as Number) as Number {
+    return 32 + (temperatureInCelsius * 9 / 5);
+  }
+
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
     var conditions = Weather.getCurrentConditions();
-    view.setText(((conditions.temperature * 9) / 5).toString() + "°");
+    view.setText((cToF(conditions.temperature)).toString() + "°");
   }
 
   private function setHeartrateDisplay() {
