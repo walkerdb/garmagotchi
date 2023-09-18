@@ -1,5 +1,6 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="Together" dithering="none" filename="together.png" />
     <bitmap id="AshleyHead" dithering="none" filename="ashley/head.png" />
     <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.png" />
     <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.png" />

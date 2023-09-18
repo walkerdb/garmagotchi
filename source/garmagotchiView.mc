@@ -9,6 +9,7 @@ import Toybox.Time;
 import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
+  private var togetherImage;
   private var bodyImage;
   private var headImage;
   private var handsImage;
@@ -18,18 +19,19 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
+    togetherImage = Application.loadResource(Rez.Drawables.Together);
     // bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
     // headImage = Application.loadResource(Rez.Drawables.AshleyHead);
     // handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
     // expressionDefaultImage = Application.loadResource(
     //   Rez.Drawables.AshleyExpressionDefault
     // );
-    bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
-    headImage = Application.loadResource(Rez.Drawables.AshleyHead);
-    handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
-    expressionDefaultImage = Application.loadResource(
-      Rez.Drawables.AshleyExpressionDefault
-    );
+    // bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
+    // headImage = Application.loadResource(Rez.Drawables.WalkerHead);
+    // handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    // expressionDefaultImage = Application.loadResource(
+    //   Rez.Drawables.WalkerExpressionDefault
+    // );
   }
 
   // Load your resources here
@@ -53,7 +55,12 @@ class garmagotchiView extends WatchUi.WatchFace {
     setWeatherDisplay();
     setHeartrateDisplay();
     setBatteryDisplay();
-    drawGarmagotchi(dc);
+    // drawGarmagotchi(dc);
+    dc.drawBitmap(
+      screenWidth / 2 - togetherImage.getWidth() / 2,
+      screenHeight - togetherImage.getHeight(),
+      togetherImage
+    );
   }
 
   // Called when this View is removed from the screen. Save the
@@ -129,13 +136,13 @@ class garmagotchiView extends WatchUi.WatchFace {
   }
 
   private function cToF(temperatureInCelsius as Number) as Number {
-    return 32 + (temperatureInCelsius * 9 / 5);
+    return 32 + (temperatureInCelsius * 9) / 5;
   }
 
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
     var conditions = Weather.getCurrentConditions();
-    view.setText((cToF(conditions.temperature)).toString() + "°");
+    view.setText(cToF(conditions.temperature).toString() + "°");
   }
 
   private function setHeartrateDisplay() {
