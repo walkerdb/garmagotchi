@@ -104,7 +104,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   }
 
   private function setTimeDisplay() {
-    var timeFormat = "$1$:$2$";
+    var timeFormat = "$1$:$2$ $3$";
     var clockTime = System.getClockTime();
     var hours = clockTime.hour;
     if (!System.getDeviceSettings().is24Hour) {
@@ -117,7 +117,11 @@ class garmagotchiView extends WatchUi.WatchFace {
         hours = hours.format("%02d");
       }
     }
-    var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
+    var timeString = Lang.format(timeFormat, [
+      hours,
+      clockTime.min.format("%02d"),
+      clockTime.hour >= 12 ? "pm" : "am",
+    ]);
 
     // Update the view
     var view = View.findDrawableById("TimeDisplay") as Text;
@@ -127,7 +131,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
     var conditions = Weather.getCurrentConditions();
-    view.setText((conditions.temperature * 9 / 5).toString() + "°");
+    view.setText(((conditions.temperature * 9) / 5).toString() + "°");
   }
 
   private function setHeartrateDisplay() {
@@ -137,14 +141,18 @@ class garmagotchiView extends WatchUi.WatchFace {
     if (info != null) {
       heartRate = info.currentHeartRate;
     } else {
-      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(1, true).next();
+      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
+        1,
+        true
+      ).next();
       if (latestHeartRateSample != null) {
         heartRate = latestHeartRateSample.heartRate;
       }
     }
 
     var view = View.findDrawableById("HeartrateDisplay") as Text;
-    var heartRateText = heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
+    var heartRateText =
+      heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
     view.setText(heartRateText);
   }
 
