@@ -10,28 +10,41 @@ import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
   private var togetherImage;
+  private var heartImage;
   private var bodyImage;
   private var headImage;
   private var handsImage;
   private var expressionDefaultImage;
+  private var expressionHighHRImage;
+  private var expressionPastBedtimeImage;
+
   private var screenWidth;
   private var screenHeight;
+
+  private var heartRate;
 
   function initialize() {
     WatchFace.initialize();
     togetherImage = Application.loadResource(Rez.Drawables.Together);
+    // heartImage = Application.loadResource(Rez.Drawables.Heart);
     // bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
     // headImage = Application.loadResource(Rez.Drawables.AshleyHead);
     // handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
     // expressionDefaultImage = Application.loadResource(
     //   Rez.Drawables.AshleyExpressionDefault
     // );
-    // bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
-    // headImage = Application.loadResource(Rez.Drawables.WalkerHead);
-    // handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
-    // expressionDefaultImage = Application.loadResource(
-    //   Rez.Drawables.WalkerExpressionDefault
-    // );
+    bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
+    headImage = Application.loadResource(Rez.Drawables.WalkerHead);
+    handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
+    expressionDefaultImage = Application.loadResource(
+      Rez.Drawables.WalkerExpressionDefault
+    );
+    expressionHighHRImage = Application.loadResource(
+      Rez.Drawables.WalkerExpressionHighHR
+    );
+    expressionPastBedtimeImage = Application.loadResource(
+      Rez.Drawables.WalkerExpressionPastBedtime
+    );
   }
 
   // Load your resources here
@@ -39,6 +52,7 @@ class garmagotchiView extends WatchUi.WatchFace {
     setLayout(Rez.Layouts.WatchFace(dc));
     screenWidth = dc.getWidth();
     screenHeight = dc.getHeight();
+    getHeartRate();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -55,12 +69,7 @@ class garmagotchiView extends WatchUi.WatchFace {
     setWeatherDisplay();
     setHeartrateDisplay();
     setBatteryDisplay();
-    // drawGarmagotchi(dc);
-    dc.drawBitmap(
-      screenWidth / 2 - togetherImage.getWidth() / 2,
-      screenHeight - togetherImage.getHeight(),
-      togetherImage
-    );
+    drawGarmagotchi(dc);
   }
 
   // Called when this View is removed from the screen. Save the
@@ -90,11 +99,30 @@ class garmagotchiView extends WatchUi.WatchFace {
       screenHeight - handsImage.getHeight(),
       handsImage
     );
-    dc.drawBitmap(
-      screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
-      screenHeight - expressionDefaultImage.getHeight(),
-      expressionDefaultImage
-    );
+    drawExpression(dc);
+  }
+
+  private function drawExpression(dc as Dc) {
+    var currentHour = System.getClockTime().hour;
+    if (heartRate != null && heartRate >= 165) {
+      dc.drawBitmap(
+        screenWidth / 2 - expressionHighHRImage.getWidth() / 2,
+        screenHeight - expressionHighHRImage.getHeight(),
+        expressionHighHRImage
+      );
+    } else if (currentHour >= 0 && currentHour <= 6) {
+      dc.drawBitmap(
+        screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
+        screenHeight - expressionDefaultImage.getHeight(),
+        expressionPastBedtimeImage
+      );
+    } else {
+      dc.drawBitmap(
+        screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
+        screenHeight - expressionDefaultImage.getHeight(),
+        expressionDefaultImage
+      );
+    }
   }
 
   private function setDayDisplay() {
@@ -117,6 +145,9 @@ class garmagotchiView extends WatchUi.WatchFace {
     if (!System.getDeviceSettings().is24Hour) {
       if (hours > 12) {
         hours = hours - 12;
+      }
+      if (hours == 0) {
+        hours = 12;
       }
     } else {
       if (Properties.getValue("UseMilitaryFormat")) {
@@ -143,13 +174,14 @@ class garmagotchiView extends WatchUi.WatchFace {
     var view = View.findDrawableById("TempDisplay") as Text;
     var temperatureInC = Weather.getCurrentConditions().temperature;
     var usesCelsius = System.getDeviceSettings().temperatureUnits == 0;
-    var displayTemp = (usesCelsius ? temperatureInC : cToF(temperatureInC)).toString();
+    var displayTemp = (
+      usesCelsius ? temperatureInC : cToF(temperatureInC)
+    ).toString();
     view.setText(displayTemp + "°");
   }
 
-  private function setHeartrateDisplay() {
-    var heartRate = 0;
-
+  private function getHeartRate() {
+    heartRate = 0;
     var info = Activity.getActivityInfo();
     if (info != null) {
       heartRate = info.currentHeartRate;
@@ -162,14 +194,13 @@ class garmagotchiView extends WatchUi.WatchFace {
         heartRate = latestHeartRateSample.heartRate;
       }
     }
+  }
 
-    var view = View.findDrawableById("HeartrateDisplay");
+  private function setHeartrateDisplay() {
+    var view = View.findDrawableById("HeartrateDisplay") as Text;
     var heartRateText =
       heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
-    if (view has :setLocation and view has :setText) {
-      view.setLocation(view.locX, screenHeight - 270);
-      view.setText(heartRateText);
-    }
+    view.setText(heartRateText);
   }
 
   private function setBatteryDisplay() {
