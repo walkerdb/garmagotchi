@@ -17,6 +17,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var expressionDefaultImage;
   private var expressionHighHRImage;
   private var expressionPastBedtimeImage;
+  private var chosenCharacter;
 
   private var screenWidth;
   private var screenHeight;
@@ -25,26 +26,15 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
+    chosenCharacter = new Character("Walker");
     togetherImage = Application.loadResource(Rez.Drawables.Together);
     // heartImage = Application.loadResource(Rez.Drawables.Heart);
-    // bodyImage = Application.loadResource(Rez.Drawables.AshleyBody);
-    // headImage = Application.loadResource(Rez.Drawables.AshleyHead);
-    // handsImage = Application.loadResource(Rez.Drawables.AshleyHands);
-    // expressionDefaultImage = Application.loadResource(
-    //   Rez.Drawables.AshleyExpressionDefault
-    // );
-    bodyImage = Application.loadResource(Rez.Drawables.WalkerBody);
-    headImage = Application.loadResource(Rez.Drawables.WalkerHead);
-    handsImage = Application.loadResource(Rez.Drawables.WalkerHands);
-    expressionDefaultImage = Application.loadResource(
-      Rez.Drawables.WalkerExpressionDefault
-    );
-    expressionHighHRImage = Application.loadResource(
-      Rez.Drawables.WalkerExpressionHighHR
-    );
-    expressionPastBedtimeImage = Application.loadResource(
-      Rez.Drawables.WalkerExpressionPastBedtime
-    );
+    bodyImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyBody, Rez.Drawables.WalkerBody);
+    headImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyHead, Rez.Drawables.WalkerHead);
+    handsImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyHands, Rez.Drawables.WalkerHands);
+    expressionDefaultImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionDefault, Rez.Drawables.WalkerExpressionDefault);
+    expressionHighHRImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionHighHR, Rez.Drawables.WalkerExpressionHighHR);
+    expressionPastBedtimeImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionPastBedtime, Rez.Drawables.WalkerExpressionPastBedtime);
   }
 
   // Load your resources here
@@ -84,44 +74,20 @@ class garmagotchiView extends WatchUi.WatchFace {
   function onEnterSleep() as Void {}
 
   private function drawGarmagotchi(dc as Dc) {
-    dc.drawBitmap(
-      screenWidth / 2 - bodyImage.getWidth() / 2,
-      screenHeight - bodyImage.getHeight(),
-      bodyImage
-    );
-    dc.drawBitmap(
-      screenWidth / 2 - headImage.getWidth() / 2,
-      screenHeight - headImage.getHeight(),
-      headImage
-    );
-    dc.drawBitmap(
-      screenWidth / 2 - handsImage.getWidth() / 2,
-      screenHeight - handsImage.getHeight(),
-      handsImage
-    );
+    bodyImage.draw(dc);
+    headImage.draw(dc);
+    handsImage.draw(dc);
     drawExpression(dc);
   }
 
   private function drawExpression(dc as Dc) {
     var currentHour = System.getClockTime().hour;
     if (heartRate != null && heartRate >= 165) {
-      dc.drawBitmap(
-        screenWidth / 2 - expressionHighHRImage.getWidth() / 2,
-        screenHeight - expressionHighHRImage.getHeight(),
-        expressionHighHRImage
-      );
+      expressionHighHRImage.draw(dc);
     } else if (currentHour >= 0 && currentHour <= 6) {
-      dc.drawBitmap(
-        screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
-        screenHeight - expressionDefaultImage.getHeight(),
-        expressionPastBedtimeImage
-      );
+      expressionPastBedtimeImage.draw(dc);
     } else {
-      dc.drawBitmap(
-        screenWidth / 2 - expressionDefaultImage.getWidth() / 2,
-        screenHeight - expressionDefaultImage.getHeight(),
-        expressionDefaultImage
-      );
+      expressionDefaultImage.draw(dc);
     }
   }
 
