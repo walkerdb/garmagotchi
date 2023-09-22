@@ -17,24 +17,60 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var expressionDefaultImage;
   private var expressionHighHRImage;
   private var expressionPastBedtimeImage;
+  private var accessoriesHotImage;
+  private var accessoriesColdImage;
   private var chosenCharacter;
 
   private var screenWidth;
   private var screenHeight;
 
   private var heartRate;
+  private var temperatureInC;
 
   function initialize() {
     WatchFace.initialize();
     chosenCharacter = new Character("Walker");
     togetherImage = Application.loadResource(Rez.Drawables.Together);
-    // heartImage = Application.loadResource(Rez.Drawables.Heart);
-    bodyImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyBody, Rez.Drawables.WalkerBody);
-    headImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyHead, Rez.Drawables.WalkerHead);
-    handsImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyHands, Rez.Drawables.WalkerHands);
-    expressionDefaultImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionDefault, Rez.Drawables.WalkerExpressionDefault);
-    expressionHighHRImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionHighHR, Rez.Drawables.WalkerExpressionHighHR);
-    expressionPastBedtimeImage = new BitmapAsset(chosenCharacter, Rez.Drawables.AshleyExpressionPastBedtime, Rez.Drawables.WalkerExpressionPastBedtime);
+    bodyImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyBody,
+      Rez.Drawables.WalkerBody
+    );
+    headImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyHead,
+      Rez.Drawables.WalkerHead
+    );
+    handsImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyHands,
+      Rez.Drawables.WalkerHands
+    );
+    expressionDefaultImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyExpressionDefault,
+      Rez.Drawables.WalkerExpressionDefault
+    );
+    expressionHighHRImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyExpressionHighHR,
+      Rez.Drawables.WalkerExpressionHighHR
+    );
+    expressionPastBedtimeImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyExpressionPastBedtime,
+      Rez.Drawables.WalkerExpressionPastBedtime
+    );
+    accessoriesHotImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyAccessoriesHot,
+      Rez.Drawables.WalkerAccessoriesHot
+    );
+    accessoriesColdImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyAccessoriesCold,
+      Rez.Drawables.WalkerAccessoriesCold
+    );
   }
 
   // Load your resources here
@@ -42,7 +78,6 @@ class garmagotchiView extends WatchUi.WatchFace {
     setLayout(Rez.Layouts.WatchFace(dc));
     screenWidth = dc.getWidth();
     screenHeight = dc.getHeight();
-    getHeartRate();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -53,6 +88,8 @@ class garmagotchiView extends WatchUi.WatchFace {
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
+    getHeartRate();
+    getWeather();
     View.onUpdate(dc);
     setDayDisplay();
     setTimeDisplay();
@@ -76,8 +113,19 @@ class garmagotchiView extends WatchUi.WatchFace {
   private function drawGarmagotchi(dc as Dc) {
     bodyImage.draw(dc);
     headImage.draw(dc);
-    handsImage.draw(dc);
     drawExpression(dc);
+    drawAccessories(dc);
+    handsImage.draw(dc);
+  }
+
+  private function drawAccessories(dc as Dc) {
+    var isHot = temperatureInC >= 30;
+    var isCold = temperatureInC <= 10;
+    if (isHot) {
+      accessoriesHotImage.draw(dc);
+    } else if (isCold) {
+      accessoriesColdImage.draw(dc);
+    }
   }
 
   private function drawExpression(dc as Dc) {
@@ -136,9 +184,12 @@ class garmagotchiView extends WatchUi.WatchFace {
     return 32 + (temperatureInCelsius * 9) / 5;
   }
 
+  private function getWeather() {
+    temperatureInC = Weather.getCurrentConditions().temperature;
+  }
+
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
-    var temperatureInC = Weather.getCurrentConditions().temperature;
     var usesCelsius = System.getDeviceSettings().temperatureUnits == 0;
     var displayTemp = (
       usesCelsius ? temperatureInC : cToF(temperatureInC)

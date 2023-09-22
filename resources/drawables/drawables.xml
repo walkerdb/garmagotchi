@@ -6,6 +6,8 @@
     
     <bitmap id="AshleyHead" dithering="none" filename="ashley/head.png" />
     <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.png" />
+    <bitmap id="AshleyAccessoriesHot" dithering="none" filename="ashley/accessories_hot.png" />
+    <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.png" />
     <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.png" />
     <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.png" />
     <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.png" />
@@ -13,6 +15,8 @@
     
     <bitmap id="WalkerHead" dithering="none" filename="walker/head.png" />
     <bitmap id="WalkerHands" dithering="none" filename="walker/hands.png" />
+    <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.png" />
+    <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.png" />
     <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.png" />
     <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.png" />
     <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.png" />
