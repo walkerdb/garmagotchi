@@ -9,12 +9,13 @@ import Toybox.Time;
 import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
-  private var togetherImage;
-  private var heartImage;
+  private var miniPartner;
+  private var miniPartnerKiss;
   private var bodyImage;
   private var headImage;
   private var handsImage;
   private var expressionDefaultImage;
+  private var expressionDefaultBlinkImage;
   private var expressionHighHRImage;
   private var expressionPastBedtimeImage;
   private var accessoriesHotImage;
@@ -27,10 +28,21 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var heartRate;
   private var temperatureInC;
 
+  private var kissAnimationStartTime;
+
   function initialize() {
     WatchFace.initialize();
     chosenCharacter = new Character("Walker");
-    togetherImage = Application.loadResource(Rez.Drawables.Together);
+    miniPartner = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyMiniWalker,
+      Rez.Drawables.WalkerMiniAshley
+    );
+    miniPartnerKiss = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyMiniWalkerKiss,
+      Rez.Drawables.WalkerMiniAshleyKiss
+    );
     bodyImage = new BitmapAsset(
       chosenCharacter,
       Rez.Drawables.AshleyBody,
@@ -50,6 +62,11 @@ class garmagotchiView extends WatchUi.WatchFace {
       chosenCharacter,
       Rez.Drawables.AshleyExpressionDefault,
       Rez.Drawables.WalkerExpressionDefault
+    );
+    expressionDefaultBlinkImage = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyExpressionDefaultBlink,
+      Rez.Drawables.WalkerExpressionDefaultBlink
     );
     expressionHighHRImage = new BitmapAsset(
       chosenCharacter,
@@ -83,7 +100,10 @@ class garmagotchiView extends WatchUi.WatchFace {
   // Called when this View is brought to the foreground. Restore
   // the state of this View and prepare it to be shown. This includes
   // loading resources into memory.
-  function onShow() as Void {}
+  function onShow() as Void {
+    var currentSecond = System.getClockTime().sec;
+    kissAnimationStartTime = currentSecond;
+  }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
@@ -97,18 +117,26 @@ class garmagotchiView extends WatchUi.WatchFace {
     setHeartrateDisplay();
     setBatteryDisplay();
     drawGarmagotchi(dc);
+    drawMiniPartner(dc);
   }
 
   // Called when this View is removed from the screen. Save the
   // state of this View here. This includes freeing resources from
   // memory.
-  function onHide() as Void {}
+  function onHide() as Void {
+    kissAnimationStartTime = -1;
+  }
 
   // The user has just looked at their watch. Timers and animations may be started here.
-  function onExitSleep() as Void {}
+  function onExitSleep() as Void {
+    var currentSecond = System.getClockTime().sec;
+    kissAnimationStartTime = currentSecond;
+  }
 
   // Terminate any active timers and prepare for slow updates.
-  function onEnterSleep() as Void {}
+  function onEnterSleep() as Void {
+    kissAnimationStartTime = -1;
+  }
 
   private function drawGarmagotchi(dc as Dc) {
     bodyImage.draw(dc);
@@ -116,6 +144,23 @@ class garmagotchiView extends WatchUi.WatchFace {
     drawExpression(dc);
     drawAccessories(dc);
     handsImage.draw(dc);
+  }
+
+  private function drawMiniPartner(dc) {
+    if (kissAnimationStartTime != -1) {
+      var currentSecond = System.getClockTime().sec;
+      if (
+        currentSecond == kissAnimationStartTime + 1 ||
+        currentSecond == kissAnimationStartTime + 3
+      ) {
+        miniPartner.draw(dc);
+      } else if (currentSecond == kissAnimationStartTime + 2) {
+        miniPartnerKiss.draw(dc);
+      }
+      if (currentSecond == kissAnimationStartTime + 4) {
+        kissAnimationStartTime = -1;
+      }
+    }
   }
 
   private function drawAccessories(dc as Dc) {
@@ -130,12 +175,17 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   private function drawExpression(dc as Dc) {
     var currentHour = System.getClockTime().hour;
+    var currentSecond = System.getClockTime().sec;
     if (heartRate != null && heartRate >= 165) {
       expressionHighHRImage.draw(dc);
     } else if (currentHour >= 0 && currentHour <= 6) {
       expressionPastBedtimeImage.draw(dc);
     } else {
-      expressionDefaultImage.draw(dc);
+      if (currentSecond % 4 == 0) {
+        expressionDefaultBlinkImage.draw(dc);
+      } else {
+        expressionDefaultImage.draw(dc);
+      }
     }
   }
 

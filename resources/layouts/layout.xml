@@ -2,7 +2,7 @@
     <drawable class="Background" />
     <label id="DateDisplay" x="center" y="4%" font="#BionicBold:30" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
     <label id="TimeDisplay" x="center" y="10%" font="#BionicBold:48" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
-    <label id="HeartrateDisplay" x="center" y="25%" font="#BionicBold:30" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
-    <label id="TempDisplay" text="000" x="90%" y="25%" font="#BionicBold:30" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
-    <label id="BatteryDisplay" x="10%" y="25%" font="#BionicBold:30" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE"/>
+    <label id="HeartrateDisplay" x="center" y="25%" font="#BionicBold:32" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <label id="TempDisplay" text="000" x="90%" y="25%" font="#BionicBold:32" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+    <label id="BatteryDisplay" x="10%" y="25%" font="#BionicBold:32" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE"/>
 </layout> 
