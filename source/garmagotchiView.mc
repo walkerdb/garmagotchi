@@ -21,6 +21,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var expressionDefaultBlinkImage;
   private var expressionHighHRImage;
   private var expressionPastBedtimeImage;
+  private var expressionHeh;
   private var accessoriesHotImage;
   private var accessoriesColdImage;
   private var chosenCharacter;
@@ -35,7 +36,7 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
-    chosenCharacter = new Character("Walker");
+    chosenCharacter = new Character("Ashley");
     miniPartner = new BitmapAsset(
       chosenCharacter,
       Rez.Drawables.AshleyMiniWalker,
@@ -90,6 +91,11 @@ class garmagotchiView extends WatchUi.WatchFace {
       chosenCharacter,
       Rez.Drawables.AshleyExpressionPastBedtime,
       Rez.Drawables.WalkerExpressionPastBedtime
+    );
+    expressionHeh = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyExpressionHeh,
+      Rez.Drawables.WalkerExpressionHeh
     );
     accessoriesHotImage = new BitmapAsset(
       chosenCharacter,
@@ -196,7 +202,13 @@ class garmagotchiView extends WatchUi.WatchFace {
   private function drawExpression(dc as Dc) {
     var currentHour = System.getClockTime().hour;
     var currentSecond = System.getClockTime().sec;
-    if (heartRate != null && heartRate >= 165) {
+    if (
+      heartRate == 69 ||
+      cToF(temperatureInC) == 69 ||
+      System.getSystemStats().battery == 69
+    ) {
+      expressionHeh.draw(dc);
+    } else if (heartRate != null && heartRate >= 165) {
       expressionHighHRImage.draw(dc);
     } else if (currentHour >= 0 && currentHour <= 6) {
       expressionPastBedtimeImage.draw(dc);

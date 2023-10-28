@@ -7,6 +7,7 @@
     <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.svg" />
     <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.svg" />
     <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.svg" />
+    <bitmap id="AshleyExpressionHeh" dithering="none" filename="ashley/expression_heh.svg" />
     <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.svg" />
     <bitmap id="AshleyExpressionDefaultBlink" dithering="none" filename="ashley/expression_default_blink.svg" />
     <bitmap id="AshleyBody" dithering="none" filename="ashley/body.svg" />
@@ -20,6 +21,7 @@
     <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.svg" />
     <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.svg" />
     <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.svg" />
+    <bitmap id="WalkerExpressionHeh" dithering="none" filename="walker/expression_heh.svg" />
     <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.svg" />
     <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.svg" />
     <bitmap id="WalkerExpressionDefaultBlink" dithering="none" filename="walker/expression_default_blink.svg" />
