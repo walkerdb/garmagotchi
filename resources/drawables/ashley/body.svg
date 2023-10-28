@@ -2,9 +2,8 @@
 <svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Artboard</title>
     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Ashley" transform="translate(80, 174.372)" fill="#314836">
-            <ellipse id="Body" cx="127.5" cy="239.128047" rx="100.5" ry="57.5"></ellipse>
+        <g id="Ashley" transform="translate(87, 128.9813)" fill="#314836">
+            <ellipse id="Body" cx="121.5" cy="287.518713" rx="95.5" ry="54.5"></ellipse>
         </g>
-        <g id="Walker" transform="translate(80, 165.819)"></g>
     </g>
 </svg>

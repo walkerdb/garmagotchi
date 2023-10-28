@@ -1,31 +1,31 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    
-    <bitmap id="Together" dithering="none" filename="together.png" />
-    <bitmap id="Heart" dithering="none" filename="heart.png" />
-    
+        
     <bitmap id="AshleyHead" dithering="none" filename="ashley/head.svg" />
     <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.svg" />
-    <bitmap id="AshleyAccessoriesHot" dithering="none" filename="ashley/accessories_hot.png" />
-    <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.png" />
-    <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.png" />
-    <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.png" />
+    <bitmap id="AshleyAccessoriesHot" dithering="none" filename="ashley/accessories_hot.svg" />
+    <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.svg" />
+    <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.svg" />
+    <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.svg" />
     <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.svg" />
     <bitmap id="AshleyExpressionDefaultBlink" dithering="none" filename="ashley/expression_default_blink.svg" />
     <bitmap id="AshleyBody" dithering="none" filename="ashley/body.svg" />
     <bitmap id="AshleyMiniWalker" dithering="none" filename="ashley/mini_walker.svg" />
     <bitmap id="AshleyMiniWalkerKiss" dithering="none" filename="ashley/mini_walker_kiss.svg" />
-
+    <bitmap id="AshleyMiniWalkerSparkle" dithering="none" filename="ashley/mini_walker_sparkle.svg" />
+    <bitmap id="AshleyMiniWalkerSquish" dithering="none" filename="ashley/mini_walker_squish.svg" />
     
     <bitmap id="WalkerHead" dithering="none" filename="walker/head.svg" />
     <bitmap id="WalkerHands" dithering="none" filename="walker/hands.svg" />
-    <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.png" />
-    <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.png" />
-    <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.png" />
-    <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.png" />
+    <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.svg" />
+    <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.svg" />
+    <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.svg" />
+    <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.svg" />
     <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.svg" />
     <bitmap id="WalkerExpressionDefaultBlink" dithering="none" filename="walker/expression_default_blink.svg" />
     <bitmap id="WalkerBody" dithering="none" filename="walker/body.svg" />
     <bitmap id="WalkerMiniAshley" dithering="none" filename="walker/mini_ashley.svg" />
     <bitmap id="WalkerMiniAshleyKiss" dithering="none" filename="walker/mini_ashley_kiss.svg" />
+    <bitmap id="WalkerMiniAshleySparkle" dithering="none" filename="walker/mini_ashley_sparkle.svg" />
+    <bitmap id="WalkerMiniAshleySquish" dithering="none" filename="walker/mini_ashley_squish.svg" />
 </drawables>

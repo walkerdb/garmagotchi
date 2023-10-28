@@ -11,6 +11,9 @@ import Toybox.Weather;
 class garmagotchiView extends WatchUi.WatchFace {
   private var miniPartner;
   private var miniPartnerKiss;
+  private var miniPartnerSparkle;
+  private var miniPartnerSquish;
+
   private var bodyImage;
   private var headImage;
   private var handsImage;
@@ -28,7 +31,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var heartRate;
   private var temperatureInC;
 
-  private var kissAnimationStartTime;
+  private var miniPartnerAnimationStartTime;
 
   function initialize() {
     WatchFace.initialize();
@@ -42,6 +45,16 @@ class garmagotchiView extends WatchUi.WatchFace {
       chosenCharacter,
       Rez.Drawables.AshleyMiniWalkerKiss,
       Rez.Drawables.WalkerMiniAshleyKiss
+    );
+    miniPartnerSparkle = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyMiniWalkerSparkle,
+      Rez.Drawables.WalkerMiniAshleySparkle
+    );
+    miniPartnerSquish = new BitmapAsset(
+      chosenCharacter,
+      Rez.Drawables.AshleyMiniWalkerSquish,
+      Rez.Drawables.WalkerMiniAshleySquish
     );
     bodyImage = new BitmapAsset(
       chosenCharacter,
@@ -102,7 +115,7 @@ class garmagotchiView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {
     var currentSecond = System.getClockTime().sec;
-    kissAnimationStartTime = currentSecond;
+    miniPartnerAnimationStartTime = currentSecond;
   }
 
   // Update the view
@@ -124,18 +137,18 @@ class garmagotchiView extends WatchUi.WatchFace {
   // state of this View here. This includes freeing resources from
   // memory.
   function onHide() as Void {
-    kissAnimationStartTime = -1;
+    miniPartnerAnimationStartTime = -1;
   }
 
   // The user has just looked at their watch. Timers and animations may be started here.
   function onExitSleep() as Void {
     var currentSecond = System.getClockTime().sec;
-    kissAnimationStartTime = currentSecond;
+    miniPartnerAnimationStartTime = currentSecond;
   }
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
-    kissAnimationStartTime = -1;
+    miniPartnerAnimationStartTime = -1;
   }
 
   private function drawGarmagotchi(dc as Dc) {
@@ -147,18 +160,25 @@ class garmagotchiView extends WatchUi.WatchFace {
   }
 
   private function drawMiniPartner(dc) {
-    if (kissAnimationStartTime != -1) {
+    if (miniPartnerAnimationStartTime != -1) {
       var currentSecond = System.getClockTime().sec;
       if (
-        currentSecond == kissAnimationStartTime + 1 ||
-        currentSecond == kissAnimationStartTime + 3
+        currentSecond == miniPartnerAnimationStartTime + 1 ||
+        currentSecond == miniPartnerAnimationStartTime + 3
       ) {
         miniPartner.draw(dc);
-      } else if (currentSecond == kissAnimationStartTime + 2) {
-        miniPartnerKiss.draw(dc);
+      } else if (currentSecond == miniPartnerAnimationStartTime + 2) {
+        var rand = Math.rand() % 3;
+        if (rand == 0) {
+          miniPartnerSparkle.draw(dc);
+        } else if (rand == 1) {
+          miniPartnerKiss.draw(dc);
+        } else if (rand == 2) {
+          miniPartnerSquish.draw(dc);
+        }
       }
-      if (currentSecond == kissAnimationStartTime + 4) {
-        kissAnimationStartTime = -1;
+      if (currentSecond == miniPartnerAnimationStartTime + 4) {
+        miniPartnerAnimationStartTime = -1;
       }
     }
   }
@@ -266,7 +286,9 @@ class garmagotchiView extends WatchUi.WatchFace {
   private function setHeartrateDisplay() {
     var view = View.findDrawableById("HeartrateDisplay") as Text;
     var heartRateText =
-      heartRate == 0 || heartRate == null ? "--" : heartRate.format("%d");
+      heartRate == 0 || heartRate == null
+        ? "-- bpm"
+        : heartRate.format("%d") + " bpm";
     view.setText(heartRateText);
   }
 

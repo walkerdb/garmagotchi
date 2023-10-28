@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Artboard</title>
-    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Ashley" transform="translate(80, 174.372)" stroke-linecap="round">
-            <g id="Expressions" transform="translate(76.5, 125.628)">
-                <g id="Blink" transform="translate(0.5, 8.7754)">
-                    <path d="M37,37.2246176 C37,44.4043193 43.1400949,50.2246176 50.7142857,50.2246176 C58.2884766,50.2246176 64.4285714,44.4043193 64.4285714,37.2246176" id="Mouth" stroke="#CC9774" stroke-width="4"></path>
-                    <path d="M0,1.22462563 C2.65247821,0.408208544 5.65247821,0 9,0 C12.3475218,0 15.3475218,0.408208544 18,1.22462563" id="Left-Eye" stroke="#332B27" stroke-width="5"></path>
-                    <path d="M84,1.22462563 C86.6529386,0.408208544 89.6529386,0 93,0 C96.3470614,0 99.3470614,0.408208544 102,1.22462563" id="Right-Eye" stroke="#332B27" stroke-width="5"></path>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Ashley" transform="translate(87, 128.9813)">
+            <g id="Expressions" transform="translate(73, 179.0187)">
+                <g id="Blink" transform="translate(0.4757, 8.3292)">
+                    <path d="M35.2038835,35.3318404 C35.2038835,42.1464726 41.0459155,47.6708235 48.2524272,47.6708235 C55.4589389,47.6708235 61.3009709,42.1464726 61.3009709,35.3318404" id="Mouth" stroke="#CC9774" stroke-width="4"></path>
+                    <path d="M0,1.16235653 C2.52371713,0.387452177 5.37808606,0 8.5631068,0 C11.7481275,0 14.6024965,0.387452177 17.1262136,1.16235653" id="Left-Eye" stroke="#332B27" stroke-width="5"></path>
+                    <path d="M79.9223301,1.16235653 C82.4464852,0.387452177 85.3008542,0 88.4854369,0 C91.6700196,0 94.5243886,0.387452177 97.0485437,1.16235653" id="Right-Eye" stroke="#332B27" stroke-width="5"></path>
                 </g>
             </g>
         </g>
-        <g id="Walker" transform="translate(80, 165.819)"></g>
     </g>
 </svg>
