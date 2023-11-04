@@ -4,18 +4,9 @@ import Toybox.Graphics;
 
 class BitmapAsset {
   private var image as Graphics.BitmapReference;
-  
-  function initialize(chosenCharacter as Character, ashleyAsset, walkerAsset) {
-    switch (chosenCharacter.name) {
-      case "Walker":
-        self.image = Application.loadResource(walkerAsset);
-        break;
-      case "Ashley":
-        self.image = Application.loadResource(ashleyAsset);
-        break;
-      default:
-        self.image = Application.loadResource(ashleyAsset);
-    }
+
+  function initialize(asset) {
+    self.image = Application.loadResource(asset);
   }
 
   function draw(dc as Dc) {

@@ -9,10 +9,12 @@ import Toybox.Time;
 import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
-  private var miniPartner;
-  private var miniPartnerKiss;
-  private var miniPartnerSparkle;
-  private var miniPartnerSquish;
+  private var mode;
+
+  private var partner;
+  private var partnerKiss;
+  private var partnerSparkle;
+  private var partnerSquish;
 
   private var bodyImage;
   private var headImage;
@@ -24,7 +26,6 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var expressionHeh;
   private var accessoriesHotImage;
   private var accessoriesColdImage;
-  private var chosenCharacter;
 
   private var screenWidth;
   private var screenHeight;
@@ -32,81 +33,30 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var heartRate;
   private var temperatureInC;
 
-  private var miniPartnerAnimationStartTime;
+  private var partnerAnimationStartTime;
 
   function initialize() {
     WatchFace.initialize();
-    chosenCharacter = new Character("Ashley");
-    miniPartner = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyMiniWalker,
-      Rez.Drawables.WalkerMiniAshley
-    );
-    miniPartnerKiss = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyMiniWalkerKiss,
-      Rez.Drawables.WalkerMiniAshleyKiss
-    );
-    miniPartnerSparkle = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyMiniWalkerSparkle,
-      Rez.Drawables.WalkerMiniAshleySparkle
-    );
-    miniPartnerSquish = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyMiniWalkerSquish,
-      Rez.Drawables.WalkerMiniAshleySquish
-    );
-    bodyImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyBody,
-      Rez.Drawables.WalkerBody
-    );
-    headImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyHead,
-      Rez.Drawables.WalkerHead
-    );
-    handsImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyHands,
-      Rez.Drawables.WalkerHands
-    );
-    expressionDefaultImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyExpressionDefault,
-      Rez.Drawables.WalkerExpressionDefault
-    );
+    mode = "animal";
+
+    partner = new BitmapAsset(Rez.Drawables.Partner);
+    partnerKiss = new BitmapAsset(Rez.Drawables.PartnerKiss);
+    partnerSparkle = new BitmapAsset(Rez.Drawables.PartnerSparkle);
+    partnerSquish = new BitmapAsset(Rez.Drawables.PartnerSquish);
+    bodyImage = new BitmapAsset(Rez.Drawables.Body);
+    headImage = new BitmapAsset(Rez.Drawables.Head);
+    handsImage = new BitmapAsset(Rez.Drawables.Hands);
+    expressionDefaultImage = new BitmapAsset(Rez.Drawables.ExpressionDefault);
     expressionDefaultBlinkImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyExpressionDefaultBlink,
-      Rez.Drawables.WalkerExpressionDefaultBlink
+      Rez.Drawables.ExpressionDefaultBlink
     );
-    expressionHighHRImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyExpressionHighHR,
-      Rez.Drawables.WalkerExpressionHighHR
-    );
+    expressionHighHRImage = new BitmapAsset(Rez.Drawables.ExpressionHighHR);
     expressionPastBedtimeImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyExpressionPastBedtime,
-      Rez.Drawables.WalkerExpressionPastBedtime
+      Rez.Drawables.ExpressionPastBedtime
     );
-    expressionHeh = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyExpressionHeh,
-      Rez.Drawables.WalkerExpressionHeh
-    );
-    accessoriesHotImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyAccessoriesHot,
-      Rez.Drawables.WalkerAccessoriesHot
-    );
-    accessoriesColdImage = new BitmapAsset(
-      chosenCharacter,
-      Rez.Drawables.AshleyAccessoriesCold,
-      Rez.Drawables.WalkerAccessoriesCold
-    );
+    expressionHeh = new BitmapAsset(Rez.Drawables.ExpressionHeh);
+    accessoriesHotImage = new BitmapAsset(Rez.Drawables.AccessoriesHot);
+    accessoriesColdImage = new BitmapAsset(Rez.Drawables.AccessoriesCold);
   }
 
   // Load your resources here
@@ -121,40 +71,42 @@ class garmagotchiView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {
     var currentSecond = System.getClockTime().sec;
-    miniPartnerAnimationStartTime = currentSecond;
+    partnerAnimationStartTime = currentSecond;
   }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
+    View.onUpdate(dc);
     getHeartRate();
     getWeather();
-    View.onUpdate(dc);
     setDayDisplay();
     setTimeDisplay();
     setWeatherDisplay();
     setHeartrateDisplay();
     setBatteryDisplay();
     drawGarmagotchi(dc);
-    drawMiniPartner(dc);
+    if (mode == "couple") {
+      drawPartner(dc);
+    }
   }
 
   // Called when this View is removed from the screen. Save the
   // state of this View here. This includes freeing resources from
   // memory.
   function onHide() as Void {
-    miniPartnerAnimationStartTime = -1;
+    partnerAnimationStartTime = -1;
   }
 
   // The user has just looked at their watch. Timers and animations may be started here.
   function onExitSleep() as Void {
     var currentSecond = System.getClockTime().sec;
-    miniPartnerAnimationStartTime = currentSecond;
+    partnerAnimationStartTime = currentSecond;
   }
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
-    miniPartnerAnimationStartTime = -1;
+    partnerAnimationStartTime = -1;
   }
 
   private function drawGarmagotchi(dc as Dc) {
@@ -165,26 +117,26 @@ class garmagotchiView extends WatchUi.WatchFace {
     handsImage.draw(dc);
   }
 
-  private function drawMiniPartner(dc) {
-    if (miniPartnerAnimationStartTime != -1) {
+  private function drawPartner(dc) {
+    if (partnerAnimationStartTime != -1) {
       var currentSecond = System.getClockTime().sec;
       if (
-        currentSecond == miniPartnerAnimationStartTime + 1 ||
-        currentSecond == miniPartnerAnimationStartTime + 3
+        currentSecond == partnerAnimationStartTime + 1 ||
+        currentSecond == partnerAnimationStartTime + 3
       ) {
-        miniPartner.draw(dc);
-      } else if (currentSecond == miniPartnerAnimationStartTime + 2) {
+        partner.draw(dc);
+      } else if (currentSecond == partnerAnimationStartTime + 2) {
         var rand = Math.rand() % 3;
         if (rand == 0) {
-          miniPartnerSparkle.draw(dc);
+          partnerSparkle.draw(dc);
         } else if (rand == 1) {
-          miniPartnerKiss.draw(dc);
+          partnerKiss.draw(dc);
         } else if (rand == 2) {
-          miniPartnerSquish.draw(dc);
+          partnerSquish.draw(dc);
         }
       }
-      if (currentSecond == miniPartnerAnimationStartTime + 4) {
-        miniPartnerAnimationStartTime = -1;
+      if (currentSecond == partnerAnimationStartTime + 4) {
+        partnerAnimationStartTime = -1;
       }
     }
   }
@@ -280,19 +232,19 @@ class garmagotchiView extends WatchUi.WatchFace {
   }
 
   private function getHeartRate() {
-    heartRate = 0;
-    var info = Activity.getActivityInfo();
-    if (info != null) {
-      heartRate = info.currentHeartRate;
-    } else {
-      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
-        1,
-        true
-      ).next();
-      if (latestHeartRateSample != null) {
-        heartRate = latestHeartRateSample.heartRate;
-      }
-    }
+    heartRate = 166;
+    // var info = Activity.getActivityInfo();
+    // if (info != null) {
+    //   heartRate = info.currentHeartRate;
+    // } else {
+    //   var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
+    //     1,
+    //     true
+    //   ).next();
+    //   if (latestHeartRateSample != null) {
+    //     heartRate = latestHeartRateSample.heartRate;
+    //   }
+    // }
   }
 
   private function setHeartrateDisplay() {

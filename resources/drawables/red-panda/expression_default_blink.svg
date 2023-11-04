@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Red Panda</title>
+    <g id="Red-Panda" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Expressions" transform="translate(110.1781, 283.3091)">
+            <g id="Blink" transform="translate(40.2977, 33.0201)">
+                <path d="M0,1.16235653 C2.52371713,0.387452177 5.37808606,0 8.5631068,0 C11.7481275,0 14.6024965,0.387452177 17.1262136,1.16235653" id="Left-Eye" stroke="#000000" stroke-width="5"></path>
+                <path d="M99.9223301,1.16235653 C102.446485,0.387452177 105.300854,0 108.485437,0 C111.67002,0 114.524389,0.387452177 117.048544,1.16235653" id="Right-Eye" stroke="#000000" stroke-width="5"></path>
+                <path d="M41.5242718,35.6708235 C41.5242718,42.4854556 49.1354311,48.0098065 58.5242718,48.0098065 C67.9131126,48.0098065 75.5242718,42.4854556 75.5242718,35.6708235" id="Mouth" stroke="#833219" stroke-width="4"></path>
+            </g>
+        </g>
+    </g>
+</svg>
