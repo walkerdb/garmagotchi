@@ -232,19 +232,19 @@ class garmagotchiView extends WatchUi.WatchFace {
   }
 
   private function getHeartRate() {
-    heartRate = 166;
-    // var info = Activity.getActivityInfo();
-    // if (info != null) {
-    //   heartRate = info.currentHeartRate;
-    // } else {
-    //   var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
-    //     1,
-    //     true
-    //   ).next();
-    //   if (latestHeartRateSample != null) {
-    //     heartRate = latestHeartRateSample.heartRate;
-    //   }
-    // }
+    heartRate = 0;
+    var info = Activity.getActivityInfo();
+    if (info != null) {
+      heartRate = info.currentHeartRate;
+    } else {
+      var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(
+        1,
+        true
+      ).next();
+      if (latestHeartRateSample != null) {
+        heartRate = latestHeartRateSample.heartRate;
+      }
+    }
   }
 
   private function setHeartrateDisplay() {
