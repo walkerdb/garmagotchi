@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Penguin</title>
-    <defs>
-        <path d="M25.5,0 C39.1645781,0 50.3188239,7.05145529 50.9699589,15.9105373 L50.9982334,16.3852158 L51,16.729805 C50.6198316,25.7566771 39.3492345,33 25.5,33 C11.6507655,33 0.380168376,25.7566771 0.00941758502,16.7293334 L0,16.270195 C0.380168376,7.24332287 11.6507655,0 25.5,0 Z" id="path-1"></path>
-    </defs>
-    <g id="Penguin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Expressions" transform="translate(120.1781, 283.3091)">
-            <g id="Blink" transform="translate(30.2977, 33.0201)">
-                <path d="M0,1.16235653 C2.52371713,0.387452177 5.37808606,0 8.5631068,0 C11.7481275,0 14.6024965,0.387452177 17.1262136,1.16235653" id="Left-Eye" stroke="#000000" stroke-width="5" stroke-linecap="round"></path>
-                <path d="M99.9223301,1.16235653 C102.446485,0.387452177 105.300854,0 108.485437,0 C111.67002,0 114.524389,0.387452177 117.048544,1.16235653" id="Right-Eye" stroke="#000000" stroke-width="5" stroke-linecap="round"></path>
-                <g id="Mouth" transform="translate(32.5243, 20.6708)">
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <use id="Beak" fill="#F0E191" xlink:href="#path-1"></use>
-                    <path d="M0,15 C8.5,19.6666667 17,22 25.5,22 C34,22 42.5,19.6666667 51,15" id="Smile" stroke="#B9A539" stroke-width="4" stroke-linecap="round" mask="url(#mask-2)"></path>
-                </g>
+    <title>Axolotl</title>
+    <g id="Axolotl" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Expressions" transform="translate(110.1781, 283.3091)">
+            <g id="Blink" transform="translate(39.8219, 33.0201)">
+                <path d="M0.475728155,1.16235653 C2.99944529,0.387452177 5.85381422,0 9.03883495,0 C12.2238557,0 15.0782246,0.387452177 17.6019417,1.16235653" id="Left-Eye" stroke="#000000" stroke-width="5"></path>
+                <path d="M100.398058,1.16235653 C102.922213,0.387452177 105.776582,0 108.961165,0 C112.145748,0 115.000117,0.387452177 117.524272,1.16235653" id="Right-Eye" stroke="#000000" stroke-width="5"></path>
+                <path d="M0,30.3318404 C11.3226537,43.1281134 46.6603068,22.6708235 59,22.6708235 C71.3396932,22.6708235 108.644013,43.0332749 118,30.3318404" id="Mouth" stroke="#C98B8C" stroke-width="4"></path>
             </g>
         </g>
     </g>

@@ -6,7 +6,7 @@
             <g id="Default" transform="translate(39.8219, 24.6909)">
                 <ellipse id="Left-Eye" fill="#000000" cx="9.51456311" cy="9.49152542" rx="9.51456311" ry="9.49152542"></ellipse>
                 <ellipse id="Right-Eye" fill="#000000" cx="108.485437" cy="9.49152542" rx="9.51456311" ry="9.49152542"></ellipse>
-                <path d="M19,44 C19,50.8146322 37.3563253,56.3389831 60,56.3389831 C82.6436747,56.3389831 101,50.8146322 101,44" id="Mouth" stroke="#C98B8C" stroke-width="4" stroke-linecap="round"></path>
+                <path d="M0,38.6610169 C11.3226537,51.4572899 46.6603068,31 59,31 C71.3396932,31 108.644013,51.3624514 118,38.6610169" id="Mouth" stroke="#C98B8C" stroke-width="4" stroke-linecap="round"></path>
             </g>
         </g>
     </g>

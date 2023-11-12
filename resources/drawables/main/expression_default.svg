@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Penguin</title>
-    <defs>
-        <path d="M25.5,0 C39.1645781,0 50.3188239,7.05145529 50.9699589,15.9105373 L50.9982334,16.3852158 L51,16.729805 C50.6198316,25.7566771 39.3492345,33 25.5,33 C11.6507655,33 0.380168376,25.7566771 0.00941758502,16.7293334 L0,16.270195 C0.380168376,7.24332287 11.6507655,0 25.5,0 Z" id="path-1"></path>
-    </defs>
-    <g id="Penguin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Expressions" transform="translate(120.1781, 283.3091)">
-            <g id="Default" transform="translate(29.8219, 24.6909)">
+    <title>Axolotl</title>
+    <g id="Axolotl" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Expressions" transform="translate(110.1781, 283.3091)">
+            <g id="Default" transform="translate(39.8219, 24.6909)">
                 <ellipse id="Left-Eye" fill="#000000" cx="9.51456311" cy="9.49152542" rx="9.51456311" ry="9.49152542"></ellipse>
                 <ellipse id="Right-Eye" fill="#000000" cx="108.485437" cy="9.49152542" rx="9.51456311" ry="9.49152542"></ellipse>
-                <g id="Mouth" transform="translate(33, 29)">
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <use id="Beak" fill="#F0E191" xlink:href="#path-1"></use>
-                    <path d="M0,15 C8.5,19.6666667 17,22 25.5,22 C34,22 42.5,19.6666667 51,15" id="Smile" stroke="#B9A539" stroke-width="4" stroke-linecap="round" mask="url(#mask-2)"></path>
-                </g>
+                <path d="M0,38.6610169 C11.3226537,51.4572899 46.6603068,31 59,31 C71.3396932,31 108.644013,51.3624514 118,38.6610169" id="Mouth" stroke="#C98B8C" stroke-width="4" stroke-linecap="round"></path>
             </g>
         </g>
     </g>
