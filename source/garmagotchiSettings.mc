@@ -7,7 +7,7 @@ class garmagotchiSettings extends WatchUi.Menu2 {
     Menu2.addItem(
       new MenuItem("Switch Character", "Red Panda", "redPanda", {})
     );
-    Menu2.addItem(new MenuItem("Switch Character", "Axolotyl", "axolotyl", {}));
+    Menu2.addItem(new MenuItem("Switch Character", "Axolotl", "axolotl", {}));
     Menu2.addItem(new MenuItem("Switch Character", "Penguin", "penguin", {}));
     //other things
   }
