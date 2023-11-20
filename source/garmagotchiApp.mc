@@ -1,10 +1,18 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
+using Toybox.Application.Storage;
 
-class garmagotchiApp extends Application.AppBase {
+class GarmagotchiApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
+
+    if (Storage.getValue("garmagotchiCharacter") == null) {
+      Storage.setValue("garmagotchiCharacter", "redPanda");
+    }
+    if (Storage.getValue("garmagotchiMode") == null) {
+      Storage.setValue("garmagotchiMode", "animal");
+    }
   }
 
   // onStart() is called on application start up
@@ -15,7 +23,14 @@ class garmagotchiApp extends Application.AppBase {
 
   // Return the initial view of your application here
   function getInitialView() as Array<Views or InputDelegates>? {
-    return [new garmagotchiView()] as Array<Views or InputDelegates>;
+    return [new GarmagotchiView()] as Array<Views or InputDelegates>;
+  }
+
+  function getSettingsView() {
+    return (
+      [new GarmagotchiSettings(), new GarmagotchiSettingsDelegate()] as
+      Array<Views or InputDelegates>
+    );
   }
 
   // New app settings have been received so trigger a UI update
@@ -24,6 +39,6 @@ class garmagotchiApp extends Application.AppBase {
   }
 }
 
-function getApp() as garmagotchiApp {
-  return Application.getApp() as garmagotchiApp;
+function getApp() as GarmagotchiApp {
+  return Application.getApp() as GarmagotchiApp;
 }

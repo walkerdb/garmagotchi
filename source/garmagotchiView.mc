@@ -7,63 +7,28 @@ import Toybox.ActivityMonitor;
 import Toybox.Math;
 import Toybox.Time;
 import Toybox.Weather;
+using Toybox.Application.Storage;
 
-class garmagotchiView extends WatchUi.WatchFace {
-  private var mode;
-
+class GarmagotchiView extends WatchUi.WatchFace {
+  private var character;
   private var partner;
-  private var partnerKiss;
-  private var partnerSparkle;
-  private var partnerSquish;
 
-  private var bodyImage;
-  private var headImage;
-  private var handsImage;
-  private var expressionDefaultImage;
-  private var expressionDefaultBlinkImage;
-  private var expressionHighHRImage;
-  private var expressionPastBedtimeImage;
-  private var expressionHeh;
-  private var accessoriesHotImage;
-  private var accessoriesColdImage;
-
-  private var screenWidth;
-  private var screenHeight;
+  private var prevSelectedCharacter;
 
   private var heartRate;
   private var temperatureInC;
 
-  private var partnerAnimationStartTime;
-
   function initialize() {
     WatchFace.initialize();
-    mode = "animal";
-
-    partner = new BitmapAsset(Rez.Drawables.Partner);
-    partnerKiss = new BitmapAsset(Rez.Drawables.PartnerKiss);
-    partnerSparkle = new BitmapAsset(Rez.Drawables.PartnerSparkle);
-    partnerSquish = new BitmapAsset(Rez.Drawables.PartnerSquish);
-    bodyImage = new BitmapAsset(Rez.Drawables.Body);
-    headImage = new BitmapAsset(Rez.Drawables.Head);
-    handsImage = new BitmapAsset(Rez.Drawables.Hands);
-    expressionDefaultImage = new BitmapAsset(Rez.Drawables.ExpressionDefault);
-    expressionDefaultBlinkImage = new BitmapAsset(
-      Rez.Drawables.ExpressionDefaultBlink
-    );
-    expressionHighHRImage = new BitmapAsset(Rez.Drawables.ExpressionHighHR);
-    expressionPastBedtimeImage = new BitmapAsset(
-      Rez.Drawables.ExpressionPastBedtime
-    );
-    expressionHeh = new BitmapAsset(Rez.Drawables.ExpressionHeh);
-    accessoriesHotImage = new BitmapAsset(Rez.Drawables.AccessoriesHot);
-    accessoriesColdImage = new BitmapAsset(Rez.Drawables.AccessoriesCold);
+    character = new Garmagotchi();
+    character.setAssets();
+    partner = new Partner();
+    prevSelectedCharacter = Storage.getValue("garmagotchiCharacter");
   }
 
   // Load your resources here
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
-    screenWidth = dc.getWidth();
-    screenHeight = dc.getHeight();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -71,23 +36,22 @@ class garmagotchiView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {
     var currentSecond = System.getClockTime().sec;
-    partnerAnimationStartTime = currentSecond;
+    partner.setAnimationStartTime(currentSecond);
   }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
+    var newCharacter = Storage.getValue("garmagotchiCharacter");
     View.onUpdate(dc);
-    getHeartRate();
-    getWeather();
-    setDayDisplay();
-    setTimeDisplay();
-    setWeatherDisplay();
-    setHeartrateDisplay();
-    setBatteryDisplay();
-    drawGarmagotchi(dc);
-    if (mode == "couple") {
-      drawPartner(dc);
+    drawInfo();
+    if (!prevSelectedCharacter.equals(newCharacter)) {
+      character.setAssets();
+      prevSelectedCharacter = newCharacter;
+    }
+    character.draw(dc, new Stats(heartRate, cToF(temperatureInC)));
+    if (Storage.getValue("garmagatchiMode") == "couple") {
+      partner.draw(dc);
     }
   }
 
@@ -95,82 +59,28 @@ class garmagotchiView extends WatchUi.WatchFace {
   // state of this View here. This includes freeing resources from
   // memory.
   function onHide() as Void {
-    partnerAnimationStartTime = -1;
+    partner.setAnimationStartTime(-1);
   }
 
   // The user has just looked at their watch. Timers and animations may be started here.
   function onExitSleep() as Void {
     var currentSecond = System.getClockTime().sec;
-    partnerAnimationStartTime = currentSecond;
+    partner.setAnimationStartTime(currentSecond);
   }
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
-    partnerAnimationStartTime = -1;
+    partner.setAnimationStartTime(-1);
   }
 
-  private function drawGarmagotchi(dc as Dc) {
-    bodyImage.draw(dc);
-    headImage.draw(dc);
-    drawExpression(dc);
-    drawAccessories(dc);
-    handsImage.draw(dc);
-  }
-
-  private function drawPartner(dc) {
-    if (partnerAnimationStartTime != -1) {
-      var currentSecond = System.getClockTime().sec;
-      if (
-        currentSecond == partnerAnimationStartTime + 1 ||
-        currentSecond == partnerAnimationStartTime + 3
-      ) {
-        partner.draw(dc);
-      } else if (currentSecond == partnerAnimationStartTime + 2) {
-        var rand = Math.rand() % 3;
-        if (rand == 0) {
-          partnerSparkle.draw(dc);
-        } else if (rand == 1) {
-          partnerKiss.draw(dc);
-        } else if (rand == 2) {
-          partnerSquish.draw(dc);
-        }
-      }
-      if (currentSecond == partnerAnimationStartTime + 4) {
-        partnerAnimationStartTime = -1;
-      }
-    }
-  }
-
-  private function drawAccessories(dc as Dc) {
-    var isHot = temperatureInC >= 30;
-    var isCold = temperatureInC <= 10;
-    if (isHot) {
-      accessoriesHotImage.draw(dc);
-    } else if (isCold) {
-      accessoriesColdImage.draw(dc);
-    }
-  }
-
-  private function drawExpression(dc as Dc) {
-    var currentHour = System.getClockTime().hour;
-    var currentSecond = System.getClockTime().sec;
-    if (
-      heartRate == 69 ||
-      cToF(temperatureInC) == 69 ||
-      System.getSystemStats().battery == 69
-    ) {
-      expressionHeh.draw(dc);
-    } else if (heartRate != null && heartRate >= 165) {
-      expressionHighHRImage.draw(dc);
-    } else if (currentHour >= 0 && currentHour <= 6) {
-      expressionPastBedtimeImage.draw(dc);
-    } else {
-      if (currentSecond % 4 == 0) {
-        expressionDefaultBlinkImage.draw(dc);
-      } else {
-        expressionDefaultImage.draw(dc);
-      }
-    }
+  private function drawInfo() {
+    getHeartRate();
+    getWeather();
+    setDayDisplay();
+    setTimeDisplay();
+    setWeatherDisplay();
+    setHeartrateDisplay();
+    setBatteryDisplay();
   }
 
   private function setDayDisplay() {
@@ -197,11 +107,6 @@ class garmagotchiView extends WatchUi.WatchFace {
       if (hours == 0) {
         hours = 12;
       }
-    } else {
-      if (Properties.getValue("UseMilitaryFormat")) {
-        timeFormat = "$1$$2$";
-        hours = hours.format("%02d");
-      }
     }
     var timeString = Lang.format(timeFormat, [
       hours,
@@ -209,7 +114,6 @@ class garmagotchiView extends WatchUi.WatchFace {
       clockTime.hour >= 12 ? "pm" : "am",
     ]);
 
-    // Update the view
     var view = View.findDrawableById("TimeDisplay") as Text;
     view.setText(timeString);
   }

@@ -15,4 +15,59 @@
     <bitmap id="PartnerKiss" dithering="none" filename="main/partner_kiss.svg" />
     <bitmap id="PartnerSparkle" dithering="none" filename="main/partner_sparkle.svg" />
     <bitmap id="PartnerSquish" dithering="none" filename="main/partner_squish.svg" />
+
+    <bitmap id="RedPandaHead" dithering="none" filename="red-panda/head.svg" />
+    <bitmap id="RedPandaHands" dithering="none" filename="red-panda/hands.svg" />
+    <bitmap id="RedPandaAccessoriesHot" dithering="none" filename="red-panda/accessories_hot.svg" />
+    <bitmap id="RedPandaAccessoriesCold" dithering="none" filename="red-panda/accessories_cold.svg" />
+    <bitmap id="RedPandaExpressionPastBedtime" dithering="none" filename="red-panda/expression_past_bedtime.svg" />
+    <bitmap id="RedPandaExpressionHighHR" dithering="none" filename="red-panda/expression_high_hr.svg" />
+    <bitmap id="RedPandaExpressionHeh" dithering="none" filename="red-panda/expression_heh.svg" />
+    <bitmap id="RedPandaExpressionDefault" dithering="none" filename="red-panda/expression_default.svg" />
+    <bitmap id="RedPandaExpressionDefaultBlink" dithering="none" filename="red-panda/expression_default_blink.svg" />
+    <bitmap id="RedPandaBody" dithering="none" filename="red-panda/body.svg" />
+
+    <bitmap id="AxolotlHead" dithering="none" filename="axolotl/head.svg" />
+    <bitmap id="AxolotlHands" dithering="none" filename="axolotl/hands.svg" />
+    <bitmap id="AxolotlAccessoriesHot" dithering="none" filename="axolotl/accessories_hot.svg" />
+    <bitmap id="AxolotlAccessoriesCold" dithering="none" filename="axolotl/accessories_cold.svg" />
+    <bitmap id="AxolotlExpressionPastBedtime" dithering="none" filename="axolotl/expression_past_bedtime.svg" />
+    <bitmap id="AxolotlExpressionHighHR" dithering="none" filename="axolotl/expression_high_hr.svg" />
+    <bitmap id="AxolotlExpressionHeh" dithering="none" filename="axolotl/expression_heh.svg" />
+    <bitmap id="AxolotlExpressionDefault" dithering="none" filename="axolotl/expression_default.svg" />
+    <bitmap id="AxolotlExpressionDefaultBlink" dithering="none" filename="axolotl/expression_default_blink.svg" />
+    <bitmap id="AxolotlBody" dithering="none" filename="axolotl/body.svg" />
+
+    <bitmap id="PenguinHead" dithering="none" filename="penguin/head.svg" />
+    <bitmap id="PenguinHands" dithering="none" filename="penguin/hands.svg" />
+    <bitmap id="PenguinAccessoriesHot" dithering="none" filename="penguin/accessories_hot.svg" />
+    <bitmap id="PenguinAccessoriesCold" dithering="none" filename="penguin/accessories_cold.svg" />
+    <bitmap id="PenguinExpressionPastBedtime" dithering="none" filename="penguin/expression_past_bedtime.svg" />
+    <bitmap id="PenguinExpressionHighHR" dithering="none" filename="penguin/expression_high_hr.svg" />
+    <bitmap id="PenguinExpressionHeh" dithering="none" filename="penguin/expression_heh.svg" />
+    <bitmap id="PenguinExpressionDefault" dithering="none" filename="penguin/expression_default.svg" />
+    <bitmap id="PenguinExpressionDefaultBlink" dithering="none" filename="penguin/expression_default_blink.svg" />
+    <bitmap id="PenguinBody" dithering="none" filename="penguin/body.svg" />
+
+    <bitmap id="AshleyHead" dithering="none" filename="ashley/head.svg" />
+    <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.svg" />
+    <bitmap id="AshleyAccessoriesHot" dithering="none" filename="ashley/accessories_hot.svg" />
+    <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.svg" />
+    <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.svg" />
+    <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.svg" />
+    <bitmap id="AshleyExpressionHeh" dithering="none" filename="ashley/expression_heh.svg" />
+    <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.svg" />
+    <bitmap id="AshleyExpressionDefaultBlink" dithering="none" filename="ashley/expression_default_blink.svg" />
+    <bitmap id="AshleyBody" dithering="none" filename="ashley/body.svg" />
+
+    <bitmap id="WalkerHead" dithering="none" filename="walker/head.svg" />
+    <bitmap id="WalkerHands" dithering="none" filename="walker/hands.svg" />
+    <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.svg" />
+    <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.svg" />
+    <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.svg" />
+    <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.svg" />
+    <bitmap id="WalkerExpressionHeh" dithering="none" filename="walker/expression_heh.svg" />
+    <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.svg" />
+    <bitmap id="WalkerExpressionDefaultBlink" dithering="none" filename="walker/expression_default_blink.svg" />
+    <bitmap id="WalkerBody" dithering="none" filename="walker/body.svg" />
 </drawables>
