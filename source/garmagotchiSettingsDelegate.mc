@@ -1,4 +1,5 @@
 import Toybox.WatchUi;
+using Toybox.Application.Storage;
 
 class garmagotchiSettingsDelegate extends WatchUi.Menu2InputDelegate {
   function initialize() {
@@ -7,7 +8,7 @@ class garmagotchiSettingsDelegate extends WatchUi.Menu2InputDelegate {
 
   function onSelect(item) {
     var id = item.getId();
-    selectedCharacter = id;
+    Storage.setValue("garmagotchiCharacter", id);
     onBack();
   }
 

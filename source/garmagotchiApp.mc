@@ -1,13 +1,18 @@
 import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
-
-var selectedCharacter = "red-panda";
-var selectedMode = "animal";
+using Toybox.Application.Storage;
 
 class garmagotchiApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
+
+    if (Storage.getValue("garmagotchiCharacter") == null) {
+      Storage.setValue("garmagotchiCharacter", "red-panda");
+    }
+    if (Storage.getValue("garmagotchiMode") == null) {
+      Storage.setValue("garmagotchiMode", "animal");
+    }
   }
 
   // onStart() is called on application start up

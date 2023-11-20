@@ -7,6 +7,7 @@ import Toybox.ActivityMonitor;
 import Toybox.Math;
 import Toybox.Time;
 import Toybox.Weather;
+using Toybox.Application.Storage;
 
 class garmagotchiView extends WatchUi.WatchFace {
   private var partner;
@@ -32,7 +33,7 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
-    setGarmagotchi(selectedCharacter);
+    setGarmagotchi(Storage.getValue("garmagotchiCharacter"));
   }
 
   // Load your resources here
@@ -53,10 +54,10 @@ class garmagotchiView extends WatchUi.WatchFace {
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
     drawInfo();
-    setGarmagotchi(selectedCharacter);
+    setGarmagotchi(Storage.getValue("garmagotchiCharacter"));
     drawGarmagotchi(dc);
     debugSelected();
-    if (selectedMode == "couple") {
+    if (Storage.getValue("garmagatchiMode") == "couple") {
       drawPartner(dc);
     }
   }
@@ -81,7 +82,7 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   private function debugSelected() {
     var view = View.findDrawableById("SelectedCharacterDebug") as Text;
-    view.setText(selectedCharacter);
+    view.setText(Storage.getValue("garmagotchiCharacter"));
   }
 
   private function drawInfo() {
@@ -210,7 +211,6 @@ class garmagotchiView extends WatchUi.WatchFace {
       clockTime.hour >= 12 ? "pm" : "am",
     ]);
 
-    // Update the view
     var view = View.findDrawableById("TimeDisplay") as Text;
     view.setText(timeString);
   }
