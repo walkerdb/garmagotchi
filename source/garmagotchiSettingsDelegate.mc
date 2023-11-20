@@ -1,7 +1,7 @@
 import Toybox.WatchUi;
 using Toybox.Application.Storage;
 
-class garmagotchiSettingsDelegate extends WatchUi.Menu2InputDelegate {
+class GarmagotchiSettingsDelegate extends WatchUi.Menu2InputDelegate {
   function initialize() {
     Menu2InputDelegate.initialize();
   }

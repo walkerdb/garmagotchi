@@ -1,6 +1,6 @@
 import Toybox.WatchUi;
 
-class garmagotchiSettings extends WatchUi.Menu2 {
+class GarmagotchiSettings extends WatchUi.Menu2 {
   function initialize() {
     Menu2.initialize(null);
     Menu2.setTitle("Settings");
@@ -9,6 +9,8 @@ class garmagotchiSettings extends WatchUi.Menu2 {
     );
     Menu2.addItem(new MenuItem("Switch Character", "Axolotl", "axolotl", {}));
     Menu2.addItem(new MenuItem("Switch Character", "Penguin", "penguin", {}));
+    Menu2.addItem(new MenuItem("Switch Character", "Walker", "walker", {}));
+    Menu2.addItem(new MenuItem("Switch Character", "Ashley", "ashley", {}));
     //other things
   }
 }

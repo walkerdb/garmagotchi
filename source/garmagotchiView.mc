@@ -9,7 +9,7 @@ import Toybox.Time;
 import Toybox.Weather;
 using Toybox.Application.Storage;
 
-class garmagotchiView extends WatchUi.WatchFace {
+class GarmagotchiView extends WatchUi.WatchFace {
   private var character;
   private var partner;
 
@@ -50,7 +50,6 @@ class garmagotchiView extends WatchUi.WatchFace {
       prevSelectedCharacter = newCharacter;
     }
     character.draw(dc, new Stats(heartRate, cToF(temperatureInC)));
-    debugSelected();
     if (Storage.getValue("garmagatchiMode") == "couple") {
       partner.draw(dc);
     }
@@ -72,11 +71,6 @@ class garmagotchiView extends WatchUi.WatchFace {
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
     partner.setAnimationStartTime(-1);
-  }
-
-  private function debugSelected() {
-    var view = View.findDrawableById("SelectedCharacterDebug") as Text;
-    view.setText(Storage.getValue("garmagotchiCharacter"));
   }
 
   private function drawInfo() {

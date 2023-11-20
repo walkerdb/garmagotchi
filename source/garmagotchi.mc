@@ -17,11 +17,15 @@ class Garmagotchi {
   private var redPandaAssets;
   private var axolotlAssets;
   private var penguinAssets;
+  private var ashleyAssets;
+  private var walkerAssets;
 
   function initialize() {
     redPandaAssets = new RedPanda();
     axolotlAssets = new Axolotl();
     penguinAssets = new Penguin();
+    ashleyAssets = new Ashley();
+    walkerAssets = new Walker();
     setAssets();
   }
 
@@ -61,6 +65,28 @@ class Garmagotchi {
       expressionHeh = penguinAssets.expressionHeh;
       accessoriesHotImage = penguinAssets.accessoriesHotImage;
       accessoriesColdImage = penguinAssets.accessoriesColdImage;
+    } else if (character.equals("ashley")) {
+      bodyImage = ashleyAssets.bodyImage;
+      headImage = ashleyAssets.headImage;
+      handsImage = ashleyAssets.handsImage;
+      expressionDefaultImage = ashleyAssets.expressionDefaultImage;
+      expressionDefaultBlinkImage = ashleyAssets.expressionDefaultBlinkImage;
+      expressionHighHRImage = ashleyAssets.expressionHighHRImage;
+      expressionPastBedtimeImage = ashleyAssets.expressionPastBedtimeImage;
+      expressionHeh = ashleyAssets.expressionHeh;
+      accessoriesHotImage = ashleyAssets.accessoriesHotImage;
+      accessoriesColdImage = ashleyAssets.accessoriesColdImage;
+    } else if (character.equals("walker")) {
+      bodyImage = walkerAssets.bodyImage;
+      headImage = walkerAssets.headImage;
+      handsImage = walkerAssets.handsImage;
+      expressionDefaultImage = walkerAssets.expressionDefaultImage;
+      expressionDefaultBlinkImage = walkerAssets.expressionDefaultBlinkImage;
+      expressionHighHRImage = walkerAssets.expressionHighHRImage;
+      expressionPastBedtimeImage = walkerAssets.expressionPastBedtimeImage;
+      expressionHeh = walkerAssets.expressionHeh;
+      accessoriesHotImage = walkerAssets.accessoriesHotImage;
+      accessoriesColdImage = walkerAssets.accessoriesColdImage;
     }
   }
 

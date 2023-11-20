@@ -3,7 +3,7 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 using Toybox.Application.Storage;
 
-class garmagotchiApp extends Application.AppBase {
+class GarmagotchiApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
 
@@ -23,12 +23,12 @@ class garmagotchiApp extends Application.AppBase {
 
   // Return the initial view of your application here
   function getInitialView() as Array<Views or InputDelegates>? {
-    return [new garmagotchiView()] as Array<Views or InputDelegates>;
+    return [new GarmagotchiView()] as Array<Views or InputDelegates>;
   }
 
   function getSettingsView() {
     return (
-      [new garmagotchiSettings(), new garmagotchiSettingsDelegate()] as
+      [new GarmagotchiSettings(), new GarmagotchiSettingsDelegate()] as
       Array<Views or InputDelegates>
     );
   }
@@ -39,6 +39,6 @@ class garmagotchiApp extends Application.AppBase {
   }
 }
 
-function getApp() as garmagotchiApp {
-  return Application.getApp() as garmagotchiApp;
+function getApp() as GarmagotchiApp {
+  return Application.getApp() as GarmagotchiApp;
 }
