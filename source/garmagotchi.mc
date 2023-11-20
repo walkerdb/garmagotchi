@@ -14,7 +14,14 @@ class Garmagotchi {
   private var accessoriesHotImage;
   private var accessoriesColdImage;
 
+  private var redPandaAssets;
+  private var axolotlAssets;
+  private var penguinAssets;
+
   function initialize() {
+    redPandaAssets = new RedPanda();
+    axolotlAssets = new Axolotl();
+    penguinAssets = new Penguin();
     setAssets();
   }
 
@@ -22,74 +29,38 @@ class Garmagotchi {
     var character = Storage.getValue("garmagotchiCharacter").toString();
 
     if (character.equals("redPanda")) {
-      bodyImage = new BitmapAsset(Rez.Drawables.RedPandaBody);
-      headImage = new BitmapAsset(Rez.Drawables.RedPandaHead);
-      handsImage = new BitmapAsset(Rez.Drawables.RedPandaHands);
-      expressionDefaultImage = new BitmapAsset(
-        Rez.Drawables.RedPandaExpressionDefault
-      );
-      expressionDefaultBlinkImage = new BitmapAsset(
-        Rez.Drawables.RedPandaExpressionDefaultBlink
-      );
-      expressionHighHRImage = new BitmapAsset(
-        Rez.Drawables.RedPandaExpressionHighHR
-      );
-      expressionPastBedtimeImage = new BitmapAsset(
-        Rez.Drawables.RedPandaExpressionPastBedtime
-      );
-      expressionHeh = new BitmapAsset(Rez.Drawables.RedPandaExpressionHeh);
-      accessoriesHotImage = new BitmapAsset(
-        Rez.Drawables.RedPandaAccessoriesHot
-      );
-      accessoriesColdImage = new BitmapAsset(
-        Rez.Drawables.RedPandaAccessoriesCold
-      );
+      bodyImage = redPandaAssets.bodyImage;
+      headImage = redPandaAssets.headImage;
+      handsImage = redPandaAssets.handsImage;
+      expressionDefaultImage = redPandaAssets.expressionDefaultImage;
+      expressionDefaultBlinkImage = redPandaAssets.expressionDefaultBlinkImage;
+      expressionHighHRImage = redPandaAssets.expressionHighHRImage;
+      expressionPastBedtimeImage = redPandaAssets.expressionPastBedtimeImage;
+      expressionHeh = redPandaAssets.expressionHeh;
+      accessoriesHotImage = redPandaAssets.accessoriesHotImage;
+      accessoriesColdImage = redPandaAssets.accessoriesColdImage;
     } else if (character.equals("axolotl")) {
-      bodyImage = new BitmapAsset(Rez.Drawables.AxolotlBody);
-      headImage = new BitmapAsset(Rez.Drawables.AxolotlHead);
-      handsImage = new BitmapAsset(Rez.Drawables.AxolotlHands);
-      expressionDefaultImage = new BitmapAsset(
-        Rez.Drawables.AxolotlExpressionDefault
-      );
-      expressionDefaultBlinkImage = new BitmapAsset(
-        Rez.Drawables.AxolotlExpressionDefaultBlink
-      );
-      expressionHighHRImage = new BitmapAsset(
-        Rez.Drawables.AxolotlExpressionHighHR
-      );
-      expressionPastBedtimeImage = new BitmapAsset(
-        Rez.Drawables.AxolotlExpressionPastBedtime
-      );
-      expressionHeh = new BitmapAsset(Rez.Drawables.AxolotlExpressionHeh);
-      accessoriesHotImage = new BitmapAsset(
-        Rez.Drawables.AxolotlAccessoriesHot
-      );
-      accessoriesColdImage = new BitmapAsset(
-        Rez.Drawables.AxolotlAccessoriesCold
-      );
+      bodyImage = axolotlAssets.bodyImage;
+      headImage = axolotlAssets.headImage;
+      handsImage = axolotlAssets.handsImage;
+      expressionDefaultImage = axolotlAssets.expressionDefaultImage;
+      expressionDefaultBlinkImage = axolotlAssets.expressionDefaultBlinkImage;
+      expressionHighHRImage = axolotlAssets.expressionHighHRImage;
+      expressionPastBedtimeImage = axolotlAssets.expressionPastBedtimeImage;
+      expressionHeh = axolotlAssets.expressionHeh;
+      accessoriesHotImage = axolotlAssets.accessoriesHotImage;
+      accessoriesColdImage = axolotlAssets.accessoriesColdImage;
     } else if (character.equals("penguin")) {
-      bodyImage = new BitmapAsset(Rez.Drawables.PenguinBody);
-      headImage = new BitmapAsset(Rez.Drawables.PenguinHead);
-      handsImage = new BitmapAsset(Rez.Drawables.PenguinHands);
-      expressionDefaultImage = new BitmapAsset(
-        Rez.Drawables.PenguinExpressionDefault
-      );
-      expressionDefaultBlinkImage = new BitmapAsset(
-        Rez.Drawables.PenguinExpressionDefaultBlink
-      );
-      expressionHighHRImage = new BitmapAsset(
-        Rez.Drawables.PenguinExpressionHighHR
-      );
-      expressionPastBedtimeImage = new BitmapAsset(
-        Rez.Drawables.PenguinExpressionPastBedtime
-      );
-      expressionHeh = new BitmapAsset(Rez.Drawables.PenguinExpressionHeh);
-      accessoriesHotImage = new BitmapAsset(
-        Rez.Drawables.PenguinAccessoriesHot
-      );
-      accessoriesColdImage = new BitmapAsset(
-        Rez.Drawables.PenguinAccessoriesCold
-      );
+      bodyImage = penguinAssets.bodyImage;
+      headImage = penguinAssets.headImage;
+      handsImage = penguinAssets.handsImage;
+      expressionDefaultImage = penguinAssets.expressionDefaultImage;
+      expressionDefaultBlinkImage = penguinAssets.expressionDefaultBlinkImage;
+      expressionHighHRImage = penguinAssets.expressionHighHRImage;
+      expressionPastBedtimeImage = penguinAssets.expressionPastBedtimeImage;
+      expressionHeh = penguinAssets.expressionHeh;
+      accessoriesHotImage = penguinAssets.accessoriesHotImage;
+      accessoriesColdImage = penguinAssets.accessoriesColdImage;
     }
   }
 
