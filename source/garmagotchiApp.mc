@@ -7,10 +7,10 @@ class garmagotchiApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
 
-    if (Storage.getValue("garmagotchiCharacter").equals(null)) {
-      Storage.setValue("garmagotchiCharacter", "red-panda");
+    if (Storage.getValue("garmagotchiCharacter") == null) {
+      Storage.setValue("garmagotchiCharacter", "redPanda");
     }
-    if (Storage.getValue("garmagotchiMode").equals(null)) {
+    if (Storage.getValue("garmagotchiMode") == null) {
       Storage.setValue("garmagotchiMode", "animal");
     }
   }
