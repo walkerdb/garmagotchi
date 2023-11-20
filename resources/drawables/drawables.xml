@@ -1,6 +1,5 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-
     <bitmap id="Head" dithering="none" filename="main/head.svg" />
     <bitmap id="Hands" dithering="none" filename="main/hands.svg" />
     <bitmap id="AccessoriesHot" dithering="none" filename="main/accessories_hot.svg" />

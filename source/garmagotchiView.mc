@@ -9,8 +9,6 @@ import Toybox.Time;
 import Toybox.Weather;
 
 class garmagotchiView extends WatchUi.WatchFace {
-  private var mode;
-
   private var partner;
   private var partnerKiss;
   private var partnerSparkle;
@@ -27,9 +25,6 @@ class garmagotchiView extends WatchUi.WatchFace {
   private var accessoriesHotImage;
   private var accessoriesColdImage;
 
-  private var screenWidth;
-  private var screenHeight;
-
   private var heartRate;
   private var temperatureInC;
 
@@ -37,33 +32,12 @@ class garmagotchiView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
-    mode = "animal";
-
-    partner = new BitmapAsset(Rez.Drawables.Partner);
-    partnerKiss = new BitmapAsset(Rez.Drawables.PartnerKiss);
-    partnerSparkle = new BitmapAsset(Rez.Drawables.PartnerSparkle);
-    partnerSquish = new BitmapAsset(Rez.Drawables.PartnerSquish);
-    bodyImage = new BitmapAsset(Rez.Drawables.Body);
-    headImage = new BitmapAsset(Rez.Drawables.Head);
-    handsImage = new BitmapAsset(Rez.Drawables.Hands);
-    expressionDefaultImage = new BitmapAsset(Rez.Drawables.ExpressionDefault);
-    expressionDefaultBlinkImage = new BitmapAsset(
-      Rez.Drawables.ExpressionDefaultBlink
-    );
-    expressionHighHRImage = new BitmapAsset(Rez.Drawables.ExpressionHighHR);
-    expressionPastBedtimeImage = new BitmapAsset(
-      Rez.Drawables.ExpressionPastBedtime
-    );
-    expressionHeh = new BitmapAsset(Rez.Drawables.ExpressionHeh);
-    accessoriesHotImage = new BitmapAsset(Rez.Drawables.AccessoriesHot);
-    accessoriesColdImage = new BitmapAsset(Rez.Drawables.AccessoriesCold);
+    setGarmagotchi(selectedCharacter);
   }
 
   // Load your resources here
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
-    screenWidth = dc.getWidth();
-    screenHeight = dc.getHeight();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -78,15 +52,11 @@ class garmagotchiView extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
-    getHeartRate();
-    getWeather();
-    setDayDisplay();
-    setTimeDisplay();
-    setWeatherDisplay();
-    setHeartrateDisplay();
-    setBatteryDisplay();
+    drawInfo();
+    setGarmagotchi(selectedCharacter);
     drawGarmagotchi(dc);
-    if (mode == "couple") {
+    debugSelected();
+    if (selectedMode == "couple") {
       drawPartner(dc);
     }
   }
@@ -107,6 +77,42 @@ class garmagotchiView extends WatchUi.WatchFace {
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
     partnerAnimationStartTime = -1;
+  }
+
+  private function debugSelected() {
+    var view = View.findDrawableById("SelectedCharacterDebug") as Text;
+    view.setText(selectedCharacter);
+  }
+
+  private function drawInfo() {
+    getHeartRate();
+    getWeather();
+    setDayDisplay();
+    setTimeDisplay();
+    setWeatherDisplay();
+    setHeartrateDisplay();
+    setBatteryDisplay();
+  }
+
+  private function setGarmagotchi(character) {
+    // partner = new BitmapAsset(Rez.Drawables.Partner);
+    // partnerKiss = new BitmapAsset(Rez.Drawables.PartnerKiss);
+    // partnerSparkle = new BitmapAsset(Rez.Drawables.PartnerSparkle);
+    // partnerSquish = new BitmapAsset(Rez.Drawables.PartnerSquish);
+    bodyImage = new BitmapAsset(Rez.Drawables.Body);
+    headImage = new BitmapAsset(Rez.Drawables.Head);
+    handsImage = new BitmapAsset(Rez.Drawables.Hands);
+    expressionDefaultImage = new BitmapAsset(Rez.Drawables.ExpressionDefault);
+    expressionDefaultBlinkImage = new BitmapAsset(
+      Rez.Drawables.ExpressionDefaultBlink
+    );
+    expressionHighHRImage = new BitmapAsset(Rez.Drawables.ExpressionHighHR);
+    expressionPastBedtimeImage = new BitmapAsset(
+      Rez.Drawables.ExpressionPastBedtime
+    );
+    expressionHeh = new BitmapAsset(Rez.Drawables.ExpressionHeh);
+    accessoriesHotImage = new BitmapAsset(Rez.Drawables.AccessoriesHot);
+    accessoriesColdImage = new BitmapAsset(Rez.Drawables.AccessoriesCold);
   }
 
   private function drawGarmagotchi(dc as Dc) {
@@ -196,11 +202,6 @@ class garmagotchiView extends WatchUi.WatchFace {
       }
       if (hours == 0) {
         hours = 12;
-      }
-    } else {
-      if (Properties.getValue("UseMilitaryFormat")) {
-        timeFormat = "$1$$2$";
-        hours = hours.format("%02d");
       }
     }
     var timeString = Lang.format(timeFormat, [
