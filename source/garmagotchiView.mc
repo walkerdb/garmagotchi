@@ -50,7 +50,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
       prevSelectedCharacter = newCharacter;
     }
     character.draw(dc, new Stats(heartRate, cToF(temperatureInC)));
-    if (Storage.getValue("garmagatchiMode") == "couple") {
+    if (newCharacter.equals("me")) {
       partner.draw(dc);
     }
   }

@@ -11,10 +11,10 @@ class Partner {
   private var partnerAnimationStartTime;
 
   function initialize() {
-    partner = new BitmapAsset(Rez.Drawables.Partner);
-    partnerKiss = new BitmapAsset(Rez.Drawables.PartnerKiss);
-    partnerSparkle = new BitmapAsset(Rez.Drawables.PartnerSparkle);
-    partnerSquish = new BitmapAsset(Rez.Drawables.PartnerSquish);
+    partner = new BitmapAsset(Rez.Drawables.MyPartner);
+    partnerKiss = new BitmapAsset(Rez.Drawables.MyPartnerKiss);
+    partnerSparkle = new BitmapAsset(Rez.Drawables.MyPartnerSparkle);
+    partnerSquish = new BitmapAsset(Rez.Drawables.MyPartnerSquish);
   }
 
   function draw(dc) {
@@ -42,7 +42,7 @@ class Partner {
   }
 
   function setAnimationStartTime(time) {
-    if (Storage.getValue("garmagatchiMode") == "couple") {
+    if (Storage.getValue("garmagotchiCharacter").equals("me")) {
       partnerAnimationStartTime = time;
     }
   }

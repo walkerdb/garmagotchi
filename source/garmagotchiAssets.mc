@@ -77,53 +77,26 @@ class GarmagotchiAssets {
       ),
     };
 
-    var ashleyAssets = {
-      "bodyImage" => new BitmapAsset(Rez.Drawables.AshleyBody),
-      "headImage" => new BitmapAsset(Rez.Drawables.AshleyHead),
-      "handsImage" => new BitmapAsset(Rez.Drawables.AshleyHands),
+    var meAssets = {
+      "bodyImage" => new BitmapAsset(Rez.Drawables.MeBody),
+      "headImage" => new BitmapAsset(Rez.Drawables.MeHead),
+      "handsImage" => new BitmapAsset(Rez.Drawables.MeHands),
       "expressionDefaultImage" => new BitmapAsset(
-        Rez.Drawables.AshleyExpressionDefault
+        Rez.Drawables.MeExpressionDefault
       ),
       "expressionDefaultBlinkImage" => new BitmapAsset(
-        Rez.Drawables.AshleyExpressionDefaultBlink
+        Rez.Drawables.MeExpressionDefaultBlink
       ),
       "expressionHighHRImage" => new BitmapAsset(
-        Rez.Drawables.AshleyExpressionHighHR
+        Rez.Drawables.MeExpressionHighHR
       ),
       "expressionPastBedtimeImage" => new BitmapAsset(
-        Rez.Drawables.AshleyExpressionPastBedtime
+        Rez.Drawables.MeExpressionPastBedtime
       ),
-      "expressionHeh" => new BitmapAsset(Rez.Drawables.AshleyExpressionHeh),
-      "accessoriesHotImage" => new BitmapAsset(
-        Rez.Drawables.AshleyAccessoriesHot
-      ),
+      "expressionHeh" => new BitmapAsset(Rez.Drawables.MeExpressionHeh),
+      "accessoriesHotImage" => new BitmapAsset(Rez.Drawables.MeAccessoriesHot),
       "accessoriesColdImage" => new BitmapAsset(
-        Rez.Drawables.AshleyAccessoriesCold
-      ),
-    };
-
-    var walkerAssets = {
-      "bodyImage" => new BitmapAsset(Rez.Drawables.WalkerBody),
-      "headImage" => new BitmapAsset(Rez.Drawables.WalkerHead),
-      "handsImage" => new BitmapAsset(Rez.Drawables.WalkerHands),
-      "expressionDefaultImage" => new BitmapAsset(
-        Rez.Drawables.WalkerExpressionDefault
-      ),
-      "expressionDefaultBlinkImage" => new BitmapAsset(
-        Rez.Drawables.WalkerExpressionDefaultBlink
-      ),
-      "expressionHighHRImage" => new BitmapAsset(
-        Rez.Drawables.WalkerExpressionHighHR
-      ),
-      "expressionPastBedtimeImage" => new BitmapAsset(
-        Rez.Drawables.WalkerExpressionPastBedtime
-      ),
-      "expressionHeh" => new BitmapAsset(Rez.Drawables.WalkerExpressionHeh),
-      "accessoriesHotImage" => new BitmapAsset(
-        Rez.Drawables.WalkerAccessoriesHot
-      ),
-      "accessoriesColdImage" => new BitmapAsset(
-        Rez.Drawables.WalkerAccessoriesCold
+        Rez.Drawables.MeAccessoriesCold
       ),
     };
 
@@ -131,8 +104,7 @@ class GarmagotchiAssets {
       "redPanda" => redPandaAssets,
       "axolotl" => axolotlAssets,
       "penguin" => penguinAssets,
-      "ashley" => ashleyAssets,
-      "walker" => walkerAssets,
+      "me" => meAssets,
     };
   }
 }

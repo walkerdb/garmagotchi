@@ -10,9 +10,6 @@ class GarmagotchiApp extends Application.AppBase {
     if (Storage.getValue("garmagotchiCharacter") == null) {
       Storage.setValue("garmagotchiCharacter", "redPanda");
     }
-    if (Storage.getValue("garmagotchiMode") == null) {
-      Storage.setValue("garmagotchiMode", "animal");
-    }
   }
 
   // onStart() is called on application start up

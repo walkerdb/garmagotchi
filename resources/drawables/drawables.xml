@@ -1,21 +1,6 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
 
-    <bitmap id="Head" dithering="none" filename="main/head.svg" />
-    <bitmap id="Hands" dithering="none" filename="main/hands.svg" />
-    <bitmap id="AccessoriesHot" dithering="none" filename="main/accessories_hot.svg" />
-    <bitmap id="AccessoriesCold" dithering="none" filename="main/accessories_cold.svg" />
-    <bitmap id="ExpressionPastBedtime" dithering="none" filename="main/expression_past_bedtime.svg" />
-    <bitmap id="ExpressionHighHR" dithering="none" filename="main/expression_high_hr.svg" />
-    <bitmap id="ExpressionHeh" dithering="none" filename="main/expression_heh.svg" />
-    <bitmap id="ExpressionDefault" dithering="none" filename="main/expression_default.svg" />
-    <bitmap id="ExpressionDefaultBlink" dithering="none" filename="main/expression_default_blink.svg" />
-    <bitmap id="Body" dithering="none" filename="main/body.svg" />
-    <bitmap id="Partner" dithering="none" filename="main/partner.svg" />
-    <bitmap id="PartnerKiss" dithering="none" filename="main/partner_kiss.svg" />
-    <bitmap id="PartnerSparkle" dithering="none" filename="main/partner_sparkle.svg" />
-    <bitmap id="PartnerSquish" dithering="none" filename="main/partner_squish.svg" />
-
     <bitmap id="RedPandaHead" dithering="none" filename="red-panda/head.svg" />
     <bitmap id="RedPandaHands" dithering="none" filename="red-panda/hands.svg" />
     <bitmap id="RedPandaAccessoriesHot" dithering="none" filename="red-panda/accessories_hot.svg" />
@@ -49,25 +34,18 @@
     <bitmap id="PenguinExpressionDefaultBlink" dithering="none" filename="penguin/expression_default_blink.svg" />
     <bitmap id="PenguinBody" dithering="none" filename="penguin/body.svg" />
 
-    <bitmap id="AshleyHead" dithering="none" filename="ashley/head.svg" />
-    <bitmap id="AshleyHands" dithering="none" filename="ashley/hands.svg" />
-    <bitmap id="AshleyAccessoriesHot" dithering="none" filename="ashley/accessories_hot.svg" />
-    <bitmap id="AshleyAccessoriesCold" dithering="none" filename="ashley/accessories_cold.svg" />
-    <bitmap id="AshleyExpressionPastBedtime" dithering="none" filename="ashley/expression_past_bedtime.svg" />
-    <bitmap id="AshleyExpressionHighHR" dithering="none" filename="ashley/expression_high_hr.svg" />
-    <bitmap id="AshleyExpressionHeh" dithering="none" filename="ashley/expression_heh.svg" />
-    <bitmap id="AshleyExpressionDefault" dithering="none" filename="ashley/expression_default.svg" />
-    <bitmap id="AshleyExpressionDefaultBlink" dithering="none" filename="ashley/expression_default_blink.svg" />
-    <bitmap id="AshleyBody" dithering="none" filename="ashley/body.svg" />
-
-    <bitmap id="WalkerHead" dithering="none" filename="walker/head.svg" />
-    <bitmap id="WalkerHands" dithering="none" filename="walker/hands.svg" />
-    <bitmap id="WalkerAccessoriesHot" dithering="none" filename="walker/accessories_hot.svg" />
-    <bitmap id="WalkerAccessoriesCold" dithering="none" filename="walker/accessories_cold.svg" />
-    <bitmap id="WalkerExpressionPastBedtime" dithering="none" filename="walker/expression_past_bedtime.svg" />
-    <bitmap id="WalkerExpressionHighHR" dithering="none" filename="walker/expression_high_hr.svg" />
-    <bitmap id="WalkerExpressionHeh" dithering="none" filename="walker/expression_heh.svg" />
-    <bitmap id="WalkerExpressionDefault" dithering="none" filename="walker/expression_default.svg" />
-    <bitmap id="WalkerExpressionDefaultBlink" dithering="none" filename="walker/expression_default_blink.svg" />
-    <bitmap id="WalkerBody" dithering="none" filename="walker/body.svg" />
+    <bitmap id="MeHead" dithering="none" filename="me/head.svg" />
+    <bitmap id="MeHands" dithering="none" filename="me/hands.svg" />
+    <bitmap id="MeAccessoriesHot" dithering="none" filename="me/accessories_hot.svg" />
+    <bitmap id="MeAccessoriesCold" dithering="none" filename="me/accessories_cold.svg" />
+    <bitmap id="MeExpressionPastBedtime" dithering="none" filename="me/expression_past_bedtime.svg" />
+    <bitmap id="MeExpressionHighHR" dithering="none" filename="me/expression_high_hr.svg" />
+    <bitmap id="MeExpressionHeh" dithering="none" filename="me/expression_heh.svg" />
+    <bitmap id="MeExpressionDefault" dithering="none" filename="me/expression_default.svg" />
+    <bitmap id="MeExpressionDefaultBlink" dithering="none" filename="me/expression_default_blink.svg" />
+    <bitmap id="MeBody" dithering="none" filename="me/body.svg" />
+    <bitmap id="MyPartner" dithering="none" filename="me/partner.svg" />
+    <bitmap id="MyPartnerKiss" dithering="none" filename="me/partner_kiss.svg" />
+    <bitmap id="MyPartnerSparkle" dithering="none" filename="me/partner_sparkle.svg" />
+    <bitmap id="MyPartnerSquish" dithering="none" filename="me/partner_squish.svg" />
 </drawables>
