@@ -1,8 +1,8 @@
 # How This Works
 
-This is a collection of all the drawable Garmagatchi characters that can be used. The primary character's assets that gets shown on your watch are all located in the `resources/drawables/main` folder.
+This is a collection of all the drawable Garmagatchi characters that can be used.
 
-The `resources/drawables/main` folder must contain the following assets in SVG format with the corresponding names:
+For a custom garmagotchi avatar, `resources/drawables/me` folder must contain the following assets in SVG format with the corresponding names:
 
 1. `accessories_cold.svg`
 2. `accessories_hot.svg`
@@ -21,7 +21,7 @@ The `resources/drawables/main` folder must contain the following assets in SVG f
 
 # How To Load A Different Character
 
-To load up a different character, simply replace the `main` folder's assets with the assets of character you want to use.
+To load up a different character, simply replace the `me` folder's assets with the assets of character you want to use.
 
 Some notes on the assets based on the current implementation:
 
