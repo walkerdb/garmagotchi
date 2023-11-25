@@ -11,8 +11,6 @@ using Toybox.Application.Storage;
 
 class GarmagotchiView extends WatchUi.WatchFace {
   private var character;
-  private var partner;
-
   private var prevSelectedCharacter;
 
   private var heartRate;
@@ -22,7 +20,6 @@ class GarmagotchiView extends WatchUi.WatchFace {
     WatchFace.initialize();
     character = new Garmagotchi();
     character.setAssets();
-    partner = new Partner();
     prevSelectedCharacter = Storage.getValue("garmagotchiCharacter");
   }
 
@@ -34,10 +31,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
   // Called when this View is brought to the foreground. Restore
   // the state of this View and prepare it to be shown. This includes
   // loading resources into memory.
-  function onShow() as Void {
-    var currentSecond = System.getClockTime().sec;
-    partner.setAnimationStartTime(currentSecond);
-  }
+  function onShow() as Void {}
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
@@ -50,28 +44,18 @@ class GarmagotchiView extends WatchUi.WatchFace {
       prevSelectedCharacter = newCharacter;
     }
     character.draw(dc, new Stats(heartRate, cToF(temperatureInC)));
-    if (newCharacter.equals("me")) {
-      partner.draw(dc);
-    }
   }
 
   // Called when this View is removed from the screen. Save the
   // state of this View here. This includes freeing resources from
   // memory.
-  function onHide() as Void {
-    partner.setAnimationStartTime(-1);
-  }
+  function onHide() as Void {}
 
   // The user has just looked at their watch. Timers and animations may be started here.
-  function onExitSleep() as Void {
-    var currentSecond = System.getClockTime().sec;
-    partner.setAnimationStartTime(currentSecond);
-  }
+  function onExitSleep() as Void {}
 
   // Terminate any active timers and prepare for slow updates.
-  function onEnterSleep() as Void {
-    partner.setAnimationStartTime(-1);
-  }
+  function onEnterSleep() as Void {}
 
   private function drawInfo() {
     getHeartRate();

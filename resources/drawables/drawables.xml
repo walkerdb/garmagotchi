@@ -44,19 +44,4 @@
     <bitmap id="KittyExpressionDefault" dithering="none" filename="kitty/expression_default.svg" />
     <bitmap id="KittyExpressionDefaultBlink" dithering="none" filename="kitty/expression_default_blink.svg" />
     <bitmap id="KittyBody" dithering="none" filename="kitty/body.svg" />
-
-    <bitmap id="MeHead" dithering="none" filename="me/head.svg" />
-    <bitmap id="MeHands" dithering="none" filename="me/hands.svg" />
-    <bitmap id="MeAccessoriesHot" dithering="none" filename="me/accessories_hot.svg" />
-    <bitmap id="MeAccessoriesCold" dithering="none" filename="me/accessories_cold.svg" />
-    <bitmap id="MeExpressionPastBedtime" dithering="none" filename="me/expression_past_bedtime.svg" />
-    <bitmap id="MeExpressionHighHR" dithering="none" filename="me/expression_high_hr.svg" />
-    <bitmap id="MeExpressionHeh" dithering="none" filename="me/expression_heh.svg" />
-    <bitmap id="MeExpressionDefault" dithering="none" filename="me/expression_default.svg" />
-    <bitmap id="MeExpressionDefaultBlink" dithering="none" filename="me/expression_default_blink.svg" />
-    <bitmap id="MeBody" dithering="none" filename="me/body.svg" />
-    <bitmap id="MyPartner" dithering="none" filename="me/partner.svg" />
-    <bitmap id="MyPartnerKiss" dithering="none" filename="me/partner_kiss.svg" />
-    <bitmap id="MyPartnerSparkle" dithering="none" filename="me/partner_sparkle.svg" />
-    <bitmap id="MyPartnerSquish" dithering="none" filename="me/partner_squish.svg" />
 </drawables>

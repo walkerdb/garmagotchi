@@ -99,30 +99,6 @@ class GarmagotchiAssets {
           Rez.Drawables.KittyAccessoriesCold
         ),
       },
-      "me" => {
-        "bodyImage" => new BitmapAsset(Rez.Drawables.MeBody),
-        "headImage" => new BitmapAsset(Rez.Drawables.MeHead),
-        "handsImage" => new BitmapAsset(Rez.Drawables.MeHands),
-        "expressionDefaultImage" => new BitmapAsset(
-          Rez.Drawables.MeExpressionDefault
-        ),
-        "expressionDefaultBlinkImage" => new BitmapAsset(
-          Rez.Drawables.MeExpressionDefaultBlink
-        ),
-        "expressionHighHRImage" => new BitmapAsset(
-          Rez.Drawables.MeExpressionHighHR
-        ),
-        "expressionPastBedtimeImage" => new BitmapAsset(
-          Rez.Drawables.MeExpressionPastBedtime
-        ),
-        "expressionHeh" => new BitmapAsset(Rez.Drawables.MeExpressionHeh),
-        "accessoriesHotImage" => new BitmapAsset(
-          Rez.Drawables.MeAccessoriesHot
-        ),
-        "accessoriesColdImage" => new BitmapAsset(
-          Rez.Drawables.MeAccessoriesCold
-        ),
-      },
     };
   }
 }
