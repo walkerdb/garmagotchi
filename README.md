@@ -55,3 +55,13 @@ https://github.com/walkerdb/garmagotchi/assets/7026330/5a737db7-2b82-4764-895a-1
 <img width="730" alt="Screenshot 2023-11-04 at 1 26 05 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/a7a3e53b-f98d-4469-9628-cb88ac763812">
 <img width="730" alt="Screenshot 2023-11-04 at 1 24 50 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/8e662602-a6ed-4e6b-b377-6ec42931165a">
 <img width="730" alt="Screenshot 2023-11-04 at 1 24 41 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/9c0d0694-4c87-4a3e-96c9-40b3cc20719a">
+
+## Kitty
+
+<img width="730" alt="Screen Shot 2023-11-24 at 7 17 11 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/dffcf29a-49b8-42f7-8c42-b0dc65d58eba">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 17 16 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/af63a070-090e-447e-b463-8641bcaae173">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 18 09 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/b2d9f624-97a0-4090-a9b8-6c841200f7c3">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 19 10 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/f17d0078-9ad5-4e65-a671-ed129710f2ed">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 23 43 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/879b98ba-feb6-499f-8a0c-d67ab68dbef5">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 20 01 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/24ebd641-638a-451f-b429-d6f955ed8dcd">
+<img width="730" alt="Screen Shot 2023-11-24 at 7 20 33 PM" src="https://github.com/walkerdb/garmagotchi/assets/1877652/99207e00-db34-4a9e-9a11-d273740dff00">

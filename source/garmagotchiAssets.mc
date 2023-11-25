@@ -75,6 +75,30 @@ class GarmagotchiAssets {
           Rez.Drawables.PenguinAccessoriesCold
         ),
       },
+      "kitty" => {
+        "bodyImage" => new BitmapAsset(Rez.Drawables.KittyBody),
+        "headImage" => new BitmapAsset(Rez.Drawables.KittyHead),
+        "handsImage" => new BitmapAsset(Rez.Drawables.KittyHands),
+        "expressionDefaultImage" => new BitmapAsset(
+          Rez.Drawables.KittyExpressionDefault
+        ),
+        "expressionDefaultBlinkImage" => new BitmapAsset(
+          Rez.Drawables.KittyExpressionDefaultBlink
+        ),
+        "expressionHighHRImage" => new BitmapAsset(
+          Rez.Drawables.KittyExpressionHighHR
+        ),
+        "expressionPastBedtimeImage" => new BitmapAsset(
+          Rez.Drawables.KittyExpressionPastBedtime
+        ),
+        "expressionHeh" => new BitmapAsset(Rez.Drawables.KittyExpressionHeh),
+        "accessoriesHotImage" => new BitmapAsset(
+          Rez.Drawables.KittyAccessoriesHot
+        ),
+        "accessoriesColdImage" => new BitmapAsset(
+          Rez.Drawables.KittyAccessoriesCold
+        ),
+      },
       "me" => {
         "bodyImage" => new BitmapAsset(Rez.Drawables.MeBody),
         "headImage" => new BitmapAsset(Rez.Drawables.MeHead),
