@@ -1,6 +1,14 @@
+![Mobile Preview](https://github.com/walkerdb/garmagotchi/assets/1877652/3e2e374a-9d57-492f-8655-9b5c53a3a3ac)
+
 # Garmagotchi!
 
-A cute little virtual pet for your Garmin watch.
+A cute little animal friend that lives in your watch and responds to the things that you do!
+
+❄️ Is it cold outside? Your Garmagotchi will don a beanie and a scarf to keep warm!
+
+💦 Heart rate high? Your Garmagotchi will be working hard and sweating right there with you!
+
+😏 Battery at 69%? Nice. Your Garmagotchi will be giving you a knowing smirk.
 
 ## Setup
 
