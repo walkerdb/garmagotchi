@@ -1,62 +1,62 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
 
-    <bitmap id="RedPandaHead" dithering="none" filename="red-panda/head.svg" />
-    <bitmap id="RedPandaHands" dithering="none" filename="red-panda/hands.svg" />
-    <bitmap id="RedPandaAccessoriesHot" dithering="none" filename="red-panda/accessories_hot.svg" />
-    <bitmap id="RedPandaAccessoriesCold" dithering="none" filename="red-panda/accessories_cold.svg" />
-    <bitmap id="RedPandaExpressionPastBedtime" dithering="none" filename="red-panda/expression_past_bedtime.svg" />
-    <bitmap id="RedPandaExpressionHighHR" dithering="none" filename="red-panda/expression_high_hr.svg" />
-    <bitmap id="RedPandaExpressionHeh" dithering="none" filename="red-panda/expression_heh.svg" />
-    <bitmap id="RedPandaExpressionDefault" dithering="none" filename="red-panda/expression_default.svg" />
-    <bitmap id="RedPandaExpressionDefaultBlink" dithering="none" filename="red-panda/expression_default_blink.svg" />
-    <bitmap id="RedPandaBody" dithering="none" filename="red-panda/body.svg" />
+    <bitmap id="RedPandaHead" dithering="none" filename="red-panda/head.svg" compress="true" />
+    <bitmap id="RedPandaHands" dithering="none" filename="red-panda/hands.svg" compress="true" />
+    <bitmap id="RedPandaAccessoriesHot" dithering="none" filename="red-panda/accessories_hot.svg" compress="true" />
+    <bitmap id="RedPandaAccessoriesCold" dithering="none" filename="red-panda/accessories_cold.svg" compress="true" />
+    <bitmap id="RedPandaExpressionPastBedtime" dithering="none" filename="red-panda/expression_past_bedtime.svg" compress="true" />
+    <bitmap id="RedPandaExpressionHighHR" dithering="none" filename="red-panda/expression_high_hr.svg" compress="true" />
+    <bitmap id="RedPandaExpressionHeh" dithering="none" filename="red-panda/expression_heh.svg" compress="true" />
+    <bitmap id="RedPandaExpressionDefault" dithering="none" filename="red-panda/expression_default.svg" compress="true" />
+    <bitmap id="RedPandaExpressionDefaultBlink" dithering="none" filename="red-panda/expression_default_blink.svg" compress="true" />
+    <bitmap id="RedPandaBody" dithering="none" filename="red-panda/body.svg" compress="true" />
 
-    <bitmap id="AxolotlHead" dithering="none" filename="axolotl/head.svg" />
-    <bitmap id="AxolotlHands" dithering="none" filename="axolotl/hands.svg" />
-    <bitmap id="AxolotlAccessoriesHot" dithering="none" filename="axolotl/accessories_hot.svg" />
-    <bitmap id="AxolotlAccessoriesCold" dithering="none" filename="axolotl/accessories_cold.svg" />
-    <bitmap id="AxolotlExpressionPastBedtime" dithering="none" filename="axolotl/expression_past_bedtime.svg" />
-    <bitmap id="AxolotlExpressionHighHR" dithering="none" filename="axolotl/expression_high_hr.svg" />
-    <bitmap id="AxolotlExpressionHeh" dithering="none" filename="axolotl/expression_heh.svg" />
-    <bitmap id="AxolotlExpressionDefault" dithering="none" filename="axolotl/expression_default.svg" />
-    <bitmap id="AxolotlExpressionDefaultBlink" dithering="none" filename="axolotl/expression_default_blink.svg" />
-    <bitmap id="AxolotlBody" dithering="none" filename="axolotl/body.svg" />
+    <bitmap id="AxolotlHead" dithering="none" filename="axolotl/head.svg" compress="true" />
+    <bitmap id="AxolotlHands" dithering="none" filename="axolotl/hands.svg" compress="true" />
+    <bitmap id="AxolotlAccessoriesHot" dithering="none" filename="axolotl/accessories_hot.svg" compress="true" />
+    <bitmap id="AxolotlAccessoriesCold" dithering="none" filename="axolotl/accessories_cold.svg" compress="true" />
+    <bitmap id="AxolotlExpressionPastBedtime" dithering="none" filename="axolotl/expression_past_bedtime.svg" compress="true" />
+    <bitmap id="AxolotlExpressionHighHR" dithering="none" filename="axolotl/expression_high_hr.svg" compress="true" />
+    <bitmap id="AxolotlExpressionHeh" dithering="none" filename="axolotl/expression_heh.svg" compress="true" />
+    <bitmap id="AxolotlExpressionDefault" dithering="none" filename="axolotl/expression_default.svg" compress="true" />
+    <bitmap id="AxolotlExpressionDefaultBlink" dithering="none" filename="axolotl/expression_default_blink.svg" compress="true" />
+    <bitmap id="AxolotlBody" dithering="none" filename="axolotl/body.svg" compress="true" />
 
-    <bitmap id="PenguinHead" dithering="none" filename="penguin/head.svg" />
-    <bitmap id="PenguinHands" dithering="none" filename="penguin/hands.svg" />
-    <bitmap id="PenguinAccessoriesHot" dithering="none" filename="penguin/accessories_hot.svg" />
-    <bitmap id="PenguinAccessoriesCold" dithering="none" filename="penguin/accessories_cold.svg" />
-    <bitmap id="PenguinExpressionPastBedtime" dithering="none" filename="penguin/expression_past_bedtime.svg" />
-    <bitmap id="PenguinExpressionHighHR" dithering="none" filename="penguin/expression_high_hr.svg" />
-    <bitmap id="PenguinExpressionHeh" dithering="none" filename="penguin/expression_heh.svg" />
-    <bitmap id="PenguinExpressionDefault" dithering="none" filename="penguin/expression_default.svg" />
-    <bitmap id="PenguinExpressionDefaultBlink" dithering="none" filename="penguin/expression_default_blink.svg" />
-    <bitmap id="PenguinBody" dithering="none" filename="penguin/body.svg" />
+    <bitmap id="PenguinHead" dithering="none" filename="penguin/head.svg" compress="true" />
+    <bitmap id="PenguinHands" dithering="none" filename="penguin/hands.svg" compress="true" />
+    <bitmap id="PenguinAccessoriesHot" dithering="none" filename="penguin/accessories_hot.svg" compress="true" />
+    <bitmap id="PenguinAccessoriesCold" dithering="none" filename="penguin/accessories_cold.svg" compress="true" />
+    <bitmap id="PenguinExpressionPastBedtime" dithering="none" filename="penguin/expression_past_bedtime.svg" compress="true" />
+    <bitmap id="PenguinExpressionHighHR" dithering="none" filename="penguin/expression_high_hr.svg" compress="true" />
+    <bitmap id="PenguinExpressionHeh" dithering="none" filename="penguin/expression_heh.svg" compress="true" />
+    <bitmap id="PenguinExpressionDefault" dithering="none" filename="penguin/expression_default.svg" compress="true" />
+    <bitmap id="PenguinExpressionDefaultBlink" dithering="none" filename="penguin/expression_default_blink.svg" compress="true" />
+    <bitmap id="PenguinBody" dithering="none" filename="penguin/body.svg" compress="true" />
 
-    <bitmap id="KittyHead" dithering="none" filename="kitty/head.svg" />
-    <bitmap id="KittyHands" dithering="none" filename="kitty/hands.svg" />
-    <bitmap id="KittyAccessoriesHot" dithering="none" filename="kitty/accessories_hot.svg" />
-    <bitmap id="KittyAccessoriesCold" dithering="none" filename="kitty/accessories_cold.svg" />
-    <bitmap id="KittyExpressionPastBedtime" dithering="none" filename="kitty/expression_past_bedtime.svg" />
-    <bitmap id="KittyExpressionHighHR" dithering="none" filename="kitty/expression_high_hr.svg" />
-    <bitmap id="KittyExpressionHeh" dithering="none" filename="kitty/expression_heh.svg" />
-    <bitmap id="KittyExpressionDefault" dithering="none" filename="kitty/expression_default.svg" />
-    <bitmap id="KittyExpressionDefaultBlink" dithering="none" filename="kitty/expression_default_blink.svg" />
-    <bitmap id="KittyBody" dithering="none" filename="kitty/body.svg" />
+    <bitmap id="KittyHead" dithering="none" filename="kitty/head.svg" compress="true" />
+    <bitmap id="KittyHands" dithering="none" filename="kitty/hands.svg" compress="true" />
+    <bitmap id="KittyAccessoriesHot" dithering="none" filename="kitty/accessories_hot.svg" compress="true" />
+    <bitmap id="KittyAccessoriesCold" dithering="none" filename="kitty/accessories_cold.svg" compress="true" />
+    <bitmap id="KittyExpressionPastBedtime" dithering="none" filename="kitty/expression_past_bedtime.svg" compress="true" />
+    <bitmap id="KittyExpressionHighHR" dithering="none" filename="kitty/expression_high_hr.svg" compress="true" />
+    <bitmap id="KittyExpressionHeh" dithering="none" filename="kitty/expression_heh.svg" compress="true" />
+    <bitmap id="KittyExpressionDefault" dithering="none" filename="kitty/expression_default.svg" compress="true" />
+    <bitmap id="KittyExpressionDefaultBlink" dithering="none" filename="kitty/expression_default_blink.svg" compress="true" />
+    <bitmap id="KittyBody" dithering="none" filename="kitty/body.svg" compress="true" />
 
-    <bitmap id="MeHead" dithering="none" filename="me/head.svg" />
-    <bitmap id="MeHands" dithering="none" filename="me/hands.svg" />
-    <bitmap id="MeAccessoriesHot" dithering="none" filename="me/accessories_hot.svg" />
-    <bitmap id="MeAccessoriesCold" dithering="none" filename="me/accessories_cold.svg" />
-    <bitmap id="MeExpressionPastBedtime" dithering="none" filename="me/expression_past_bedtime.svg" />
-    <bitmap id="MeExpressionHighHR" dithering="none" filename="me/expression_high_hr.svg" />
-    <bitmap id="MeExpressionHeh" dithering="none" filename="me/expression_heh.svg" />
-    <bitmap id="MeExpressionDefault" dithering="none" filename="me/expression_default.svg" />
-    <bitmap id="MeExpressionDefaultBlink" dithering="none" filename="me/expression_default_blink.svg" />
-    <bitmap id="MeBody" dithering="none" filename="me/body.svg" />
-    <bitmap id="MyPartner" dithering="none" filename="me/partner.svg" />
-    <bitmap id="MyPartnerKiss" dithering="none" filename="me/partner_kiss.svg" />
-    <bitmap id="MyPartnerSparkle" dithering="none" filename="me/partner_sparkle.svg" />
-    <bitmap id="MyPartnerSquish" dithering="none" filename="me/partner_squish.svg" />
+    <bitmap id="MeHead" dithering="none" filename="me/head.svg" compress="true" />
+    <bitmap id="MeHands" dithering="none" filename="me/hands.svg" compress="true" />
+    <bitmap id="MeAccessoriesHot" dithering="none" filename="me/accessories_hot.svg" compress="true" />
+    <bitmap id="MeAccessoriesCold" dithering="none" filename="me/accessories_cold.svg" compress="true" />
+    <bitmap id="MeExpressionPastBedtime" dithering="none" filename="me/expression_past_bedtime.svg" compress="true" />
+    <bitmap id="MeExpressionHighHR" dithering="none" filename="me/expression_high_hr.svg" compress="true" />
+    <bitmap id="MeExpressionHeh" dithering="none" filename="me/expression_heh.svg" compress="true" />
+    <bitmap id="MeExpressionDefault" dithering="none" filename="me/expression_default.svg" compress="true" />
+    <bitmap id="MeExpressionDefaultBlink" dithering="none" filename="me/expression_default_blink.svg" compress="true" />
+    <bitmap id="MeBody" dithering="none" filename="me/body.svg" compress="true" />
+    <bitmap id="MyPartner" dithering="none" filename="me/partner.svg" compress="true" />
+    <bitmap id="MyPartnerKiss" dithering="none" filename="me/partner_kiss.svg" compress="true" />
+    <bitmap id="MyPartnerSparkle" dithering="none" filename="me/partner_sparkle.svg" compress="true" />
+    <bitmap id="MyPartnerSquish" dithering="none" filename="me/partner_squish.svg" compress="true" />
 </drawables>
