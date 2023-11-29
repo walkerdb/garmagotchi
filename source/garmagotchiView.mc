@@ -44,7 +44,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
     // Call the parent onUpdate function to redraw the layout
     var newCharacter = Storage.getValue("garmagotchiCharacter");
     View.onUpdate(dc);
-    drawInfo();
+    getDataFields();
     if (!prevSelectedCharacter.equals(newCharacter)) {
       character.setAssets();
       prevSelectedCharacter = newCharacter;
@@ -53,6 +53,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
     if (newCharacter.equals("me")) {
       partner.draw(dc);
     }
+    drawDataFields();
   }
 
   // Called when this View is removed from the screen. Save the
@@ -73,9 +74,12 @@ class GarmagotchiView extends WatchUi.WatchFace {
     partner.setAnimationStartTime(-1);
   }
 
-  private function drawInfo() {
+  private function getDataFields() {
     getHeartRate();
     getWeather();
+  }
+
+  private function drawDataFields() {
     setDayDisplay();
     setTimeDisplay();
     setWeatherDisplay();
