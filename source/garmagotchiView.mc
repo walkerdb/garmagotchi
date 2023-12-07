@@ -11,7 +11,7 @@ using Toybox.Application.Storage;
 
 class GarmagotchiView extends WatchUi.WatchFace {
   private var character;
-  private var partner;
+  // private var partner;
 
   private var prevSelectedCharacter;
 
@@ -22,7 +22,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
     WatchFace.initialize();
     character = new Garmagotchi();
     character.setAssets();
-    partner = new Partner();
+    // partner = new Partner();
     prevSelectedCharacter = Storage.getValue("garmagotchiCharacter");
   }
 
@@ -35,8 +35,8 @@ class GarmagotchiView extends WatchUi.WatchFace {
   // the state of this View and prepare it to be shown. This includes
   // loading resources into memory.
   function onShow() as Void {
-    var currentSecond = System.getClockTime().sec;
-    partner.setAnimationStartTime(currentSecond);
+    // var currentSecond = System.getClockTime().sec;
+    // partner.setAnimationStartTime(currentSecond);
   }
 
   // Update the view
@@ -50,9 +50,9 @@ class GarmagotchiView extends WatchUi.WatchFace {
       prevSelectedCharacter = newCharacter;
     }
     character.draw(dc, new Stats(heartRate, cToF(temperatureInC)));
-    if (newCharacter.equals("me")) {
-      partner.draw(dc);
-    }
+    // if (newCharacter.equals("me")) {
+    //   partner.draw(dc);
+    // }
     drawDataFields();
   }
 
@@ -60,18 +60,18 @@ class GarmagotchiView extends WatchUi.WatchFace {
   // state of this View here. This includes freeing resources from
   // memory.
   function onHide() as Void {
-    partner.setAnimationStartTime(-1);
+    // partner.setAnimationStartTime(-1);
   }
 
   // The user has just looked at their watch. Timers and animations may be started here.
   function onExitSleep() as Void {
-    var currentSecond = System.getClockTime().sec;
-    partner.setAnimationStartTime(currentSecond);
+    // var currentSecond = System.getClockTime().sec;
+    // partner.setAnimationStartTime(currentSecond);
   }
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {
-    partner.setAnimationStartTime(-1);
+    // partner.setAnimationStartTime(-1);
   }
 
   private function getDataFields() {

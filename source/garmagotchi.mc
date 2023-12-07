@@ -3,16 +3,16 @@ import Toybox.Lang;
 using Toybox.Application.Storage;
 
 class Garmagotchi {
-  private var bodyImage;
-  private var headImage;
-  private var handsImage;
-  private var expressionDefaultImage;
-  private var expressionDefaultBlinkImage;
+  private var body;
+  private var head;
+  private var hands;
+  private var expressionDefault;
+  private var expressionDefaultBlink;
   private var expressionHighHRImage;
-  private var expressionPastBedtimeImage;
+  private var expressionPastBedtime;
   private var expressionHeh;
-  private var accessoriesHotImage;
-  private var accessoriesColdImage;
+  private var accessoriesHot;
+  private var accessoriesCold;
 
   private var assets;
 
@@ -27,30 +27,26 @@ class Garmagotchi {
     var characterAssets = assets.characters.get(character);
 
     if (characterAssets != null) {
-      bodyImage = characterAssets.get("bodyImage");
-      headImage = characterAssets.get("headImage");
-      handsImage = characterAssets.get("handsImage");
-      expressionDefaultImage = characterAssets.get("expressionDefaultImage");
-      expressionDefaultBlinkImage = characterAssets.get(
-        "expressionDefaultBlinkImage"
-      );
-      expressionHighHRImage = characterAssets.get("expressionHighHRImage");
-      expressionPastBedtimeImage = characterAssets.get(
-        "expressionPastBedtimeImage"
-      );
+      body = characterAssets.get("body");
+      head = characterAssets.get("head");
+      hands = characterAssets.get("hands");
+      expressionDefault = characterAssets.get("expressionDefault");
+      expressionDefaultBlink = characterAssets.get("expressionDefaultBlink");
+      expressionHighHRImage = characterAssets.get("expressionHighHR");
+      expressionPastBedtime = characterAssets.get("expressionPastBedtime");
       expressionHeh = characterAssets.get("expressionHeh");
-      accessoriesHotImage = characterAssets.get("accessoriesHotImage");
-      accessoriesColdImage = characterAssets.get("accessoriesColdImage");
+      accessoriesHot = characterAssets.get("accessoriesHot");
+      accessoriesCold = characterAssets.get("accessoriesCold");
       return;
     }
   }
 
   function draw(dc as Dc, stats) {
-    bodyImage.draw(dc);
-    headImage.draw(dc);
+    body.draw(dc);
+    head.draw(dc);
     drawExpression(dc, stats);
     drawAccessories(dc, stats);
-    handsImage.draw(dc);
+    hands.draw(dc);
   }
 
   private function drawExpression(dc as Dc, stats) {
@@ -65,12 +61,12 @@ class Garmagotchi {
     } else if (stats.heartRate != null && stats.heartRate >= 165) {
       expressionHighHRImage.draw(dc);
     } else if (currentHour >= 0 && currentHour <= 6) {
-      expressionPastBedtimeImage.draw(dc);
+      expressionPastBedtime.draw(dc);
     } else {
       if (currentSecond % 4 == 0) {
-        expressionDefaultBlinkImage.draw(dc);
+        expressionDefaultBlink.draw(dc);
       } else {
-        expressionDefaultImage.draw(dc);
+        expressionDefault.draw(dc);
       }
     }
   }
@@ -79,9 +75,9 @@ class Garmagotchi {
     var isHot = stats.temperatureInF >= 85;
     var isCold = stats.temperatureInF <= 40;
     if (isHot) {
-      accessoriesHotImage.draw(dc);
+      accessoriesHot.draw(dc);
     } else if (isCold) {
-      accessoriesColdImage.draw(dc);
+      accessoriesCold.draw(dc);
     }
   }
 }
