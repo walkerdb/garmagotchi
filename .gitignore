@@ -1,5 +1,6 @@
 bin
 developer_key
 build
+.idea
 
 .DS_Store

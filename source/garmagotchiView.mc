@@ -88,8 +88,7 @@ class GarmagotchiView extends WatchUi.WatchFace {
   }
 
   private function setDayDisplay() {
-    var now = Time.now();
-    var date = Time.Gregorian.info(now, Time.FORMAT_MEDIUM);
+    var date = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
     var dateString = Lang.format("$1$, $2$ $3$", [
       date.day_of_week,
       date.month,
@@ -133,9 +132,9 @@ class GarmagotchiView extends WatchUi.WatchFace {
   private function setWeatherDisplay() {
     var view = View.findDrawableById("TempDisplay") as Text;
     var usesCelsius = System.getDeviceSettings().temperatureUnits == 0;
-    var displayTemp = (
+    var displayTemp = Math.round((
       usesCelsius ? temperatureInC : cToF(temperatureInC)
-    ).toString();
+    )).format("%d");
     view.setText(displayTemp + "°");
   }
 
