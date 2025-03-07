@@ -4,11 +4,9 @@
 
 A cute little animal friend that lives in your watch and responds to the things that you do!
 
-❄️ Is it cold outside? Your Garmagotchi will don a beanie and a scarf to keep warm!
+❄️ Is it cold outside? Your Garmagotchi will put on a beanie and a scarf to keep warm!
 
 💦 Heart rate high? Your Garmagotchi will be working hard and sweating right there with you!
-
-😏 Battery at 69%? Nice. Your Garmagotchi will be giving you a knowing smirk.
 
 ## Setup
 
